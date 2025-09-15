@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://51ei1s06ghxp"
-path="res://.godot/imported/Eiscue.png-6634500f6c193157abd8930e0a64f0dc.ctex"
+uid="uid://d370dm4ml55x3"
+path="res://.godot/imported/Ico_badicecream.png-562bb03879953c34c2171d5c9664fc2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Eiscue.png"
-dest_files=["res://.godot/imported/Eiscue.png-6634500f6c193157abd8930e0a64f0dc.ctex"]
+source_file="res://assets/Ico_badicecream.png"
+dest_files=["res://.godot/imported/Ico_badicecream.png-562bb03879953c34c2171d5c9664fc2a.ctex"]
 
 [params]
 
