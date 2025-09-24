@@ -153,6 +153,7 @@ animations = [{
 size = Vector2(31, 31)
 
 [node name="Player" type="CharacterBody2D"]
+texture_filter = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(610, 325)
