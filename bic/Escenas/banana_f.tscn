@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbyn1njdx811r"]
+
+[ext_resource type="Script" uid="uid://be3l2jmh78315" path="res://Escenas/banana_f.gd" id="1_5u4kl"]
+[ext_resource type="Texture2D" uid="uid://db6phmtlocjt2" path="res://assets/frutas.png" id="1_eilfr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u4kl"]
+atlas = ExtResource("1_eilfr")
+region = Rect2(35.8966, -0.243777, 32.1328, 32.2851)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eilfr"]
+size = Vector2(31, 31)
+
+[node name="banana_f" type="Area2D"]
+script = ExtResource("1_5u4kl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -0.25)
+scale = Vector2(1, 0.996644)
+texture = SubResource("AtlasTexture_5u4kl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eilfr")

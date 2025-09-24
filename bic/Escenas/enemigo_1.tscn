@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3c8njjvo0wey"]
+
+[ext_resource type="Texture2D" uid="uid://d2jo2mybi7h38" path="res://assets/troll.png" id="1_1gjjp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih3cp"]
+atlas = ExtResource("1_1gjjp")
+region = Rect2(0, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehsxi"]
+atlas = ExtResource("1_1gjjp")
+region = Rect2(46, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stxb1"]
+atlas = ExtResource("1_1gjjp")
+region = Rect2(92, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lmw4"]
+atlas = ExtResource("1_1gjjp")
+region = Rect2(138, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8gpa"]
+atlas = ExtResource("1_1gjjp")
+region = Rect2(184, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdc7p"]
+atlas = ExtResource("1_1gjjp")
+region = Rect2(230, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vs06"]
+atlas = ExtResource("1_1gjjp")
+region = Rect2(276, 0, 46, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvc7k"]
+atlas = ExtResource("1_1gjjp")
+region = Rect2(322, 0, 46, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wyelm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih3cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehsxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stxb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lmw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8gpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdc7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vs06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvc7k")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0su3"]
+size = Vector2(31, 31)
+
+[node name="Enemigo1" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wyelm")
+animation = &"walk_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 6)
+shape = SubResource("RectangleShape2D_p0su3")

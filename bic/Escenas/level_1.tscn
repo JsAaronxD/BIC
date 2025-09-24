@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh3d8gs8ivjae"]
+[gd_scene load_steps=11 format=3 uid="uid://dh3d8gs8ivjae"]
 
 [ext_resource type="Texture2D" uid="uid://c4l6hn8h1fsyk" path="res://assets/bad-ic1.png" id="1_gjwfl"]
 [ext_resource type="PackedScene" uid="uid://b5v3rohja133x" path="res://Escenas/player.tscn" id="2_nthp5"]
 [ext_resource type="Script" uid="uid://7q3uqtyxumee" path="res://Escenas/player.gd" id="3_lh4tq"]
+[ext_resource type="PackedScene" uid="uid://c3c8njjvo0wey" path="res://Escenas/enemigo_1.tscn" id="4_lh4tq"]
+[ext_resource type="Script" uid="uid://cc7pah2dpefnp" path="res://Escenas/enemigo_1.gd" id="5_hoeqm"]
+[ext_resource type="PackedScene" uid="uid://dbyn1njdx811r" path="res://Escenas/banana_f.tscn" id="6_hoeqm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hoeqm"]
 texture = ExtResource("1_gjwfl")
@@ -939,9 +942,19 @@ layer_0/tile_data = PackedInt32Array(1245196, 262144, 8, 1245197, 262144, 8, 124
 
 [node name="Base" type="Node2D" parent="."]
 
-[node name="Player" parent="Base" instance=ExtResource("2_nthp5")]
+[node name="Player" parent="Base" groups=["player"] instance=ExtResource("2_nthp5")]
 position = Vector2(-76, 256)
 script = ExtResource("3_lh4tq")
+
+[node name="Enemigo1" parent="Base" instance=ExtResource("4_lh4tq")]
+position = Vector2(306, 43)
+script = ExtResource("5_hoeqm")
+
+[node name="banana_f" parent="Base" instance=ExtResource("6_hoeqm")]
+position = Vector2(544, 321)
+
+[node name="banana_f2" parent="Base" instance=ExtResource("6_hoeqm")]
+position = Vector2(606, 375)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 
 var last_animation : String = "walk_down"
+var score: int = 0
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
@@ -41,3 +42,9 @@ func _physics_process(delta):
 		animated_sprite.stop()
 
 	move_and_slide()
+	
+	
+
+func add_points(amount: int) -> void:
+	score += amount
+	print("Puntos: ", score)
