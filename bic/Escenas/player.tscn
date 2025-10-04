@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://b5v3rohja133x"]
+[gd_scene load_steps=22 format=3 uid="uid://b5v3rohja133x"]
 
 [ext_resource type="Texture2D" uid="uid://51ei1s06ghxp" path="res://assets/Eiscue.png" id="1_cnkc8"]
+[ext_resource type="Script" uid="uid://7q3uqtyxumee" path="res://Escenas/player.gd" id="1_i8vih"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hbghi"]
 atlas = ExtResource("1_cnkc8")
@@ -154,6 +155,7 @@ size = Vector2(31, 31)
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
+script = ExtResource("1_i8vih")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(610, 325)

@@ -1,42 +1,65 @@
 extends CharacterBody2D
 
-@export var speed: float = 80.0
+@export var tile_size: int = 32
+@export var move_speed: float = 50.0
 @export var initial_direction: Vector2 = Vector2.RIGHT
 
-var direction: Vector2
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
+var direction: Vector2
+var target_position: Vector2
+var is_moving: bool = false
 
 func _ready() -> void:
 	direction = initial_direction.normalized()
+	target_position = position
 
 func _physics_process(delta: float) -> void:
-	# Intentamos mover en la dirección actual
-	var motion = direction * speed * delta
-	var col = move_and_collide(motion)
+	if is_moving:
+		var step = (target_position - position).normalized() * move_speed * delta
+		var collision = move_and_collide(step)
 
-	if col:
-		# Girar 90° a la derecha: en Godot (y positivo hacia abajo) la fórmula correcta es (-y, x)
-		direction = Vector2(-direction.y, direction.x).normalized()
+		if collision:
+			# Si hay colisión, rotamos 90° y buscamos nuevo destino
+			_rotate_direction()
+			_set_next_target()
+			return
 
-		# Intentar dar un pequeño paso en la nueva dirección.
-		# Si sigue chocando, giramos otra vez (máx 3 giros extra) hasta encontrar espacio libre.
-		var tries := 0
-		var moved := false
-		while tries < 4 and not moved:
-			var try_motion = direction * speed * delta
-			var c2 = move_and_collide(try_motion)
-			if c2:
-				direction = Vector2(-direction.y, direction.x).normalized()
-				tries += 1
-			else:
-				moved = true
+		if position.distance_to(target_position) <= step.length():
+			position = target_position
+			is_moving = false
+			_set_next_target()
+		else:
+			position += step
+	else:
+		_set_next_target()
 
-		# Si después de los giros sigue sin poder moverse, quedará quieto hasta el siguiente frame.
-	# Actualizamos la animación según la dirección actual
 	_update_animation()
 
+
+func _set_next_target() -> void:
+	var try_pos = position + direction * tile_size
+	var collision = move_and_collide((try_pos - position).normalized() * 2)
+	if collision:
+		# Si no puede avanzar, gira hasta encontrar espacio libre
+		var tries := 0
+		while tries < 4 and collision:
+			_rotate_direction()
+			try_pos = position + direction * tile_size
+			collision = move_and_collide((try_pos - position).normalized() * 2)
+			tries += 1
+		if tries >= 4:
+			return # quedó atrapado, no hace nada este frame
+	target_position = try_pos
+	is_moving = true
+
+
+func _rotate_direction() -> void:
+	# Gira 90° a la derecha: (x, y) → (-y, x)
+	direction = Vector2(-direction.y, direction.x).normalized()
+
+
 func _update_animation() -> void:
-	# Comprueba la dirección aproximada y reproduce la animación correspondiente
 	if direction.dot(Vector2.RIGHT) > 0.9:
 		anim.play("walk_right")
 	elif direction.dot(Vector2.LEFT) > 0.9:
