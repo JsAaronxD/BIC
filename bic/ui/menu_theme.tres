@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://chvhkfck1givs"]
+
+[ext_resource type="FontFile" uid="uid://cyaym3wiyhh2l" path="res://fonts/BadIceCream.otf" id="1_3ymh7"]
+
+[resource]
+default_font = ExtResource("1_3ymh7")
+Button/fonts/font = ExtResource("1_3ymh7")
