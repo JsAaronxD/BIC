@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbyn1njdx811r"]
+[gd_scene load_steps=6 format=3 uid="uid://dbyn1njdx811r"]
 
 [ext_resource type="Script" uid="uid://be3l2jmh78315" path="res://Escenas/banana_f.gd" id="1_5u4kl"]
 [ext_resource type="Texture2D" uid="uid://db6phmtlocjt2" path="res://assets/frutas.png" id="1_eilfr"]
+[ext_resource type="AudioStream" uid="uid://cmvre12c3gebs" path="res://sounds/sfx_eat.wav" id="3_46cye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5u4kl"]
 atlas = ExtResource("1_eilfr")
@@ -21,3 +22,6 @@ texture = SubResource("AtlasTexture_5u4kl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_eilfr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_46cye")

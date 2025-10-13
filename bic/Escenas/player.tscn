@@ -163,5 +163,5 @@ sprite_frames = SubResource("SpriteFrames_00ld1")
 animation = &"walk_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(608, 337.5)
+position = Vector2(609, 337)
 shape = SubResource("RectangleShape2D_i8vih")

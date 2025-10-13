@@ -13,6 +13,7 @@ var is_moving: bool = false
 func _ready() -> void:
 	direction = initial_direction.normalized()
 	target_position = position
+	$Hitbox.body_entered.connect(_on_body_entered)
 
 func _physics_process(delta: float) -> void:
 	if is_moving:
@@ -68,3 +69,8 @@ func _update_animation() -> void:
 		anim.play("walk_down")
 	elif direction.dot(Vector2.UP) > 0.9:
 		anim.play("walk_up")
+
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("player"):
+		body.game_over()

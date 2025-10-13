@@ -17,21 +17,19 @@ func _ready():
 
 func _physics_process(delta):
 	if is_moving:
+		@warning_ignore("confusable_local_declaration")
 		var direction = (target_position - position).normalized()
 		velocity = direction * move_speed
 		var collision = move_and_collide(velocity * delta)
 		if collision:
 			is_moving = false
 			velocity = Vector2.ZERO
-			animated_sprite.play(last_animation.replace("walk", "idle"))
 		else:
 			if position.distance_to(target_position) < 2:
 				position = target_position
 				is_moving = false
 				velocity = Vector2.ZERO
-				animated_sprite.play(last_animation.replace("walk", "idle"))
 
-				# 👇 Si la tecla sigue presionada, seguir avanzando en esa dirección
 				if move_input != Vector2.ZERO and not is_moving:
 					try_move(move_input)
 
@@ -54,7 +52,7 @@ func _physics_process(delta):
 func try_move(direction: Vector2) -> void:
 	target_position = position + direction * tile_size
 	is_moving = true
-	move_input = direction  # guardamos para repetir si sigue presionada
+	move_input = direction
 
 	# Elegir animación
 	if direction.y < 0:
@@ -69,7 +67,6 @@ func try_move(direction: Vector2) -> void:
 	animated_sprite.play(last_animation)
 
 func _input(event):
-	# 👇 Si sueltas la tecla, paramos el auto-repeat
 	if event.is_action_released("ui_up") or event.is_action_released("ui_down") or \
 	   event.is_action_released("ui_left") or event.is_action_released("ui_right"):
 		move_input = Vector2.ZERO
@@ -77,3 +74,9 @@ func _input(event):
 func add_points(amount: int) -> void:
 	score += amount
 	print("Puntos: ", score)
+	
+	
+func game_over() -> void:
+	var game_over_screen = get_parent().get_node("GameOverScreen")
+	if game_over_screen:
+		game_over_screen.show_game_over()
