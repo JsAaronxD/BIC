@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var tile_size := 32
+@export var ice_block_scene: PackedScene
+@export var block_delay := 0.1
 @onready var animated_sprite = $AnimatedSprite2D
 
 var last_animation : String = "walk_down"
@@ -8,15 +10,19 @@ var score: int = 0
 var target_position: Vector2 = Vector2.ZERO
 var is_moving: bool = false
 var move_speed := 100.0
+var placing_blocks := false
 
 # dirección actual de movimiento
 var move_input: Vector2 = Vector2.ZERO
+# dirección a la que mira el personaje
+var look_direction: Vector2 = Vector2.DOWN
 
 func _ready():
 	target_position = position
 
 func _physics_process(delta):
 	if is_moving:
+		@warning_ignore("confusable_local_declaration")
 		var direction = (target_position - position).normalized()
 		velocity = direction * move_speed
 		var collision = move_and_collide(velocity * delta)
@@ -47,6 +53,9 @@ func _physics_process(delta):
 
 	if direction != Vector2.ZERO:
 		try_move(direction)
+		
+	if Input.is_action_just_pressed("ui_accept") and not placing_blocks:
+		place_or_break_blocks()
 
 func try_move(direction: Vector2) -> void:
 	target_position = position + direction * tile_size
@@ -79,3 +88,59 @@ func game_over() -> void:
 	var game_over_screen = get_parent().get_node("GameOverScreen")
 	if game_over_screen:
 		game_over_screen.show_game_over()
+
+	# Corrutina asíncrona: genera los bloques uno por uno
+func place_or_break_blocks() -> void:
+	if not ice_block_scene or placing_blocks:
+		return
+
+	placing_blocks = true
+
+	var dir = Vector2.ZERO
+	match last_animation:
+		"walk_up": dir = Vector2.UP
+		"walk_down": dir = Vector2.DOWN
+		"walk_left": dir = Vector2.LEFT
+		"walk_right": dir = Vector2.RIGHT
+
+	var pos = global_position + dir * tile_size
+	var space_state := get_world_2d().direct_space_state
+	var created_blocks: Array = []
+
+	await get_tree().process_frame  # 🔹 Espera 1 frame para evitar falsos positivos
+
+	while true:
+		var params := PhysicsPointQueryParameters2D.new()
+		params.position = pos
+		params.collide_with_areas = false
+		params.collide_with_bodies = true
+
+		var result := space_state.intersect_point(params)
+
+		var hit_existing_block := false
+
+		for hit in result:
+			var collider = hit.get("collider")
+
+			# 🔹 Si choca con algo que NO acabamos de crear, termina la secuencia
+			if collider and not created_blocks.has(collider):
+				hit_existing_block = true
+				# Si el bloque ya existía, no lo rompas, solo detén la línea
+				# (puedes activar esto si quieres que rompa los antiguos)
+				# if collider.has_method("break_block"):
+				#     collider.break_block()
+				break
+
+		if hit_existing_block:
+			break
+
+		# 🔹 Crea un bloque nuevo y agrégalo a la lista
+		var block = ice_block_scene.instantiate()
+		block.global_position = pos
+		get_parent().add_child(block)
+		created_blocks.append(block)
+
+		await get_tree().create_timer(block_delay).timeout
+		pos += dir * tile_size
+
+	placing_blocks = false

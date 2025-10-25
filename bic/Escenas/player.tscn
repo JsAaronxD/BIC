@@ -155,13 +155,14 @@ size = Vector2(31, 31)
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
+position = Vector2(505, 274)
 script = ExtResource("1_i8vih")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(610, 325)
+position = Vector2(1, -13)
 sprite_frames = SubResource("SpriteFrames_00ld1")
 animation = &"walk_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(609, 337)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_i8vih")
