@@ -947,17 +947,49 @@ position = Vector2(-108, 224)
 [node name="Enemigo1" parent="Base" instance=ExtResource("4_lh4tq")]
 position = Vector2(369, 587)
 
-[node name="banana_f" parent="Base" instance=ExtResource("6_hoeqm")]
-position = Vector2(533, 305)
-
-[node name="banana_f2" parent="Base" instance=ExtResource("6_hoeqm")]
-position = Vector2(597, 369)
-
 [node name="GameOverScreen" parent="Base" instance=ExtResource("5_lh4tq")]
 visible = false
 
-[node name="banana_f3" parent="Base" instance=ExtResource("6_hoeqm")]
+[node name="Frutas" type="Node2D" parent="Base"]
+
+[node name="banana_f" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
+position = Vector2(533, 305)
+
+[node name="banana_f2" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
+position = Vector2(597, 369)
+
+[node name="banana_f3" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
 position = Vector2(661, 305)
+
+[node name="banana_f4" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
+position = Vector2(757, 433)
+
+[node name="banana_f5" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
+position = Vector2(757, 401)
+
+[node name="banana_f6" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
+position = Vector2(757, 369)
+
+[node name="banana_f7" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
+position = Vector2(757, 337)
+
+[node name="banana_f8" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
+position = Vector2(757, 305)
+
+[node name="banana_f9" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
+position = Vector2(757, 273)
+
+[node name="banana_f10" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
+position = Vector2(757, 241)
+
+[node name="banana_f11" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
+position = Vector2(757, 209)
+
+[node name="banana_f12" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
+position = Vector2(757, 177)
+
+[node name="banana_f13" parent="Base/Frutas" instance=ExtResource("6_hoeqm")]
+position = Vector2(757, 145)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_w34nr")

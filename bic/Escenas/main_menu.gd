@@ -1,6 +1,5 @@
 extends Control
 
-# Cambia esto por la ruta a tu escena principal del juego
 @export var game_scene: PackedScene
 
 func _on_play_pressed():
@@ -9,7 +8,6 @@ func _on_play_pressed():
 
 func _on_options_pressed():
 	print("Abrir menú de opciones")
-	# mostrar un Popup o cambiar de escena de Opciones
 
 func _on_exit_pressed():
 	get_tree().quit()

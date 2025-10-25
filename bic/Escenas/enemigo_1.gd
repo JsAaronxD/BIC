@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		var collision = move_and_collide(step)
 
 		if collision:
-			# Si hay colisión, rotamos 90° y buscamos nuevo destino
+			# Si hay colisión, rotamos
 			_rotate_direction()
 			_set_next_target()
 			return
@@ -42,7 +42,7 @@ func _set_next_target() -> void:
 	var try_pos = position + direction * tile_size
 	var collision = move_and_collide((try_pos - position).normalized() * 2)
 	if collision:
-		# Si no puede avanzar, gira hasta encontrar espacio libre
+		# Si no puede avanzar, gira
 		var tries := 0
 		while tries < 4 and collision:
 			_rotate_direction()
@@ -50,13 +50,13 @@ func _set_next_target() -> void:
 			collision = move_and_collide((try_pos - position).normalized() * 2)
 			tries += 1
 		if tries >= 4:
-			return # quedó atrapado, no hace nada este frame
+			return # quedó atrapado
 	target_position = try_pos
 	is_moving = true
 
 
 func _rotate_direction() -> void:
-	# Gira 90° a la derecha: (x, y) → (-y, x)
+	# Gira 90° a la derecha
 	direction = Vector2(-direction.y, direction.x).normalized()
 
 

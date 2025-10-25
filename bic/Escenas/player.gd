@@ -9,7 +9,7 @@ var target_position: Vector2 = Vector2.ZERO
 var is_moving: bool = false
 var move_speed := 100.0
 
-# Guarda la dirección actual de movimiento (si se mantiene presionado)
+# dirección actual de movimiento
 var move_input: Vector2 = Vector2.ZERO
 
 func _ready():
@@ -17,7 +17,6 @@ func _ready():
 
 func _physics_process(delta):
 	if is_moving:
-		@warning_ignore("confusable_local_declaration")
 		var direction = (target_position - position).normalized()
 		velocity = direction * move_speed
 		var collision = move_and_collide(velocity * delta)
@@ -35,7 +34,7 @@ func _physics_process(delta):
 
 		return
 
-	# Si no se está moviendo, leemos la tecla (just_pressed para iniciar)
+	# leemos la tecla
 	var direction = Vector2.ZERO
 	if Input.is_action_just_pressed("ui_up") or Input.is_action_pressed("ui_up"):
 		direction = Vector2.UP
@@ -54,7 +53,7 @@ func try_move(direction: Vector2) -> void:
 	is_moving = true
 	move_input = direction
 
-	# Elegir animación
+	# animación
 	if direction.y < 0:
 		last_animation = "walk_up"
 	elif direction.y > 0:
