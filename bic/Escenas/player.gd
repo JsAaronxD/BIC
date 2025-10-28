@@ -93,7 +93,6 @@ func game_over() -> void:
 func place_or_break_blocks() -> void:
 	if not ice_block_scene or placing_blocks:
 		return
-
 	placing_blocks = true
 
 	var dir = Vector2.ZERO
@@ -103,38 +102,53 @@ func place_or_break_blocks() -> void:
 		"walk_left": dir = Vector2.LEFT
 		"walk_right": dir = Vector2.RIGHT
 
+	var start_pos = global_position + dir * tile_size
+	var space_state := get_world_2d().direct_space_state
+
+	# ────────────────
+	# 1️⃣ Primero, revisamos si el primer tile frente al jugador tiene bloques
+	# ────────────────
+	var params := PhysicsPointQueryParameters2D.new()
+	params.position = start_pos
+	params.collide_with_bodies = true
+	params.collide_with_areas = false
+
+	var initial_hits := space_state.intersect_point(params)
+
+	if initial_hits.size() > 0:
+		# Hay bloque frente al jugador → ROMPER FILA
+		break_ice_line(dir)
+	else:
+		# No hay bloque → COLOCAR FILA
+		await build_ice_line(dir)
+
+	placing_blocks = false
+
+func build_ice_line(dir: Vector2) -> void:
 	var pos = global_position + dir * tile_size
 	var space_state := get_world_2d().direct_space_state
 	var created_blocks: Array = []
 
-	await get_tree().process_frame  # 🔹 Espera 1 frame para evitar falsos positivos
+	await get_tree().process_frame  # Evita falsos positivos de colisión
 
 	while true:
 		var params := PhysicsPointQueryParameters2D.new()
 		params.position = pos
-		params.collide_with_areas = false
 		params.collide_with_bodies = true
+		params.collide_with_areas = false
 
 		var result := space_state.intersect_point(params)
 
 		var hit_existing_block := false
-
 		for hit in result:
 			var collider = hit.get("collider")
-
-			# 🔹 Si choca con algo que NO acabamos de crear, termina la secuencia
 			if collider and not created_blocks.has(collider):
 				hit_existing_block = true
-				# Si el bloque ya existía, no lo rompas, solo detén la línea
-				# (puedes activar esto si quieres que rompa los antiguos)
-				# if collider.has_method("break_block"):
-				#     collider.break_block()
 				break
 
 		if hit_existing_block:
 			break
 
-		# 🔹 Crea un bloque nuevo y agrégalo a la lista
 		var block = ice_block_scene.instantiate()
 		block.global_position = pos
 		get_parent().add_child(block)
@@ -142,5 +156,32 @@ func place_or_break_blocks() -> void:
 
 		await get_tree().create_timer(block_delay).timeout
 		pos += dir * tile_size
+		
+func break_ice_line(dir: Vector2) -> void:
+	var pos = global_position + dir * tile_size
+	var space_state := get_world_2d().direct_space_state
 
-	placing_blocks = false
+	while true:
+		var params := PhysicsPointQueryParameters2D.new()
+		params.position = pos
+		params.collide_with_bodies = true
+		params.collide_with_areas = false
+
+		var result := space_state.intersect_point(params)
+
+		if result.is_empty():
+			break  # Ya no hay más bloques
+
+		var hit_block := false
+		for hit in result:
+			var collider = hit.get("collider")
+			if collider and collider.has_method("break_block"):
+				collider.break_block()
+				hit_block = true
+				break
+
+		if not hit_block:
+			break  # Si no es bloque rompible, detener
+
+		await get_tree().create_timer(block_delay).timeout
+		pos += dir * tile_size
