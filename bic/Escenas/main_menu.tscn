@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyuxq6fbo74tj"]
+[gd_scene load_steps=11 format=3 uid="uid://cyuxq6fbo74tj"]
 
 [ext_resource type="Script" uid="uid://b2n7af0mqcr5t" path="res://Escenas/main_menu.gd" id="1_a3sw6"]
+[ext_resource type="Theme" uid="uid://chvhkfck1givs" path="res://ui/menu_theme.tres" id="1_a082v"]
 [ext_resource type="PackedScene" uid="uid://dh3d8gs8ivjae" path="res://Escenas/level_1.tscn" id="2_hjcy7"]
+[ext_resource type="VideoStream" uid="uid://om6vvo27apd" path="res://assets/background_menu.ogv" id="3_7ms0u"]
+[ext_resource type="AudioStream" uid="uid://lyeiry8i664g" path="res://sounds/bic_menu_music.mp3" id="3_hjcy7"]
+[ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="3_qn7j5"]
+[ext_resource type="Texture2D" uid="uid://d1mjpf7wxpm2d" path="res://assets/ice_cream_background.png" id="4_xgkoo"]
+[ext_resource type="Shader" uid="uid://cnaql23erjyjd" path="res://Escenas/menu.gdshader" id="5_7rocb"]
+[ext_resource type="Texture2D" uid="uid://bjfsvh1dxq26j" path="res://assets/icono_menupng.png" id="5_s5s4m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0bd8u"]
+shader = ExtResource("5_7rocb")
+shader_parameter/border_color = Color(0.682353, 0.572549, 0, 1)
+shader_parameter/corner_radius = 0.03
+shader_parameter/border_thickness = 0.02
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -16,35 +29,77 @@ offset_right = 576.0
 offset_bottom = 321.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_a082v")
 script = ExtResource("1_a3sw6")
 game_scene = ExtResource("2_hjcy7")
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_7ms0u")
+autoplay = true
+expand = true
+loop = true
+
+[node name="IceCreamBackground" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_0bd8u")
+position = Vector2(576, 316)
+scale = Vector2(0.234375, 0.309677)
+texture = ExtResource("4_xgkoo")
+region_rect = Rect2(1.81531, 0.251709, 1918.18, 619.748)
+
+[node name="IconoMenupng" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 116.37)
+scale = Vector2(0.332, 0.327)
+texture = ExtResource("5_s5s4m")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -159.5
-offset_top = -175.5
-offset_right = 159.5
-offset_bottom = 175.5
+offset_left = -44.0
+offset_top = -46.0
+offset_right = 44.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
 [node name="play" type="Button" parent="VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qn7j5")
 text = "Jugar"
+flat = true
 
 [node name="options" type="Button" parent="VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qn7j5")
 text = "Opciones"
+flat = true
 
 [node name="exit" type="Button" parent="VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qn7j5")
 text = "Salir"
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hjcy7")
+volume_db = -15.111
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]

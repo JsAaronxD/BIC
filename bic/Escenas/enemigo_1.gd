@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var tile_size: int = 32
-@export var move_speed: float = 50.0
+@export var move_speed: float = 25.0
 @export var initial_direction: Vector2 = Vector2.RIGHT
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D

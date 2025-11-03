@@ -16,12 +16,15 @@ script = ExtResource("1_5u4kl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -0.25)
+position = Vector2(0, -16.25)
 scale = Vector2(1, 0.996644)
 texture = SubResource("AtlasTexture_5u4kl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_eilfr")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_46cye")
+volume_db = 24.0
+max_distance = 1.0

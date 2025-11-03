@@ -262,17 +262,23 @@ size = Vector2(31, 31)
 script = ExtResource("1_stxb1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_wyelm")
 animation = &"walk_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 6)
+texture_filter = 1
+position = Vector2(1, -18)
 shape = SubResource("RectangleShape2D_p0su3")
 debug_color = Color(2.59906e-06, 0.579975, 0.802817, 0.42)
 
 [node name="Hitbox" type="Area2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+texture_filter = 1
 position = Vector2(1, 6)
 shape = SubResource("RectangleShape2D_8lmw4")
 debug_color = Color(1, 0, 0, 0.419608)

@@ -1,11 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfbv0n5fptohv"]
+[gd_scene load_steps=8 format=3 uid="uid://dfbv0n5fptohv"]
 
 [ext_resource type="Script" uid="uid://jhgi2ifv73c5" path="res://Escenas/game_over_screen.gd" id="1_ipor6"]
+[ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="2_5wr88"]
+[ext_resource type="Texture2D" uid="uid://d1mjpf7wxpm2d" path="res://assets/ice_cream_background.png" id="2_07lje"]
+[ext_resource type="Shader" uid="uid://cnaql23erjyjd" path="res://Escenas/menu.gdshader" id="2_cfsex"]
+[ext_resource type="Theme" uid="uid://chvhkfck1givs" path="res://ui/menu_theme.tres" id="3_cfsex"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lljsr"]
+shader = ExtResource("2_cfsex")
+shader_parameter/border_color = Color(0.682353, 0.572549, 0, 1)
+shader_parameter/corner_radius = 0.04
+shader_parameter/border_thickness = 0.02
+
+[sub_resource type="LabelSettings" id="LabelSettings_07lje"]
+font_size = 42
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
 
 [node name="GameOverScreen" type="CanvasLayer"]
 script = ExtResource("1_ipor6")
 
+[node name="IceCreamBackground" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_lljsr")
+position = Vector2(576, 316)
+scale = Vector2(0.234375, 0.309677)
+texture = ExtResource("2_07lje")
+region_rect = Rect2(1.81531, 0.251709, 1918.18, 619.748)
+
 [node name="Panel" type="Panel" parent="."]
+self_modulate = Color(0, 0, 0, 0)
+texture_filter = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -19,38 +44,46 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme = ExtResource("3_cfsex")
 
 [node name="Label" type="Label" parent="Panel"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.5
-offset_top = -80.5
-offset_right = 36.5
-offset_bottom = -57.5
+offset_left = -99.5
+offset_top = -76.5
+offset_right = 99.5
+offset_bottom = -31.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "¡Perdiste!"
+theme_override_fonts/font = ExtResource("2_5wr88")
+text = "Perdiste!"
+label_settings = SubResource("LabelSettings_07lje")
 
 [node name="RetryButton" type="Button" parent="Panel"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -30.0
-offset_right = 49.0
-offset_bottom = 8.0
+offset_left = -54.0
+offset_top = -20.5
+offset_right = 55.0
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_5wr88")
 text = "Reintentar"
+flat = true
 
 [node name="QuitButton" type="Button" parent="Panel"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,12 +91,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -48.0
-offset_top = 19.5
+offset_top = 17.5
 offset_right = 50.0
-offset_bottom = 57.5
+offset_bottom = 47.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_5wr88")
 text = "Salir"
+flat = true
 
 [connection signal="pressed" from="Panel/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]

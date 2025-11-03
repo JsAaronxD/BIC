@@ -11,10 +11,12 @@ size = Vector2(32, 32)
 script = ExtResource("1_1d06i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, 8)
 texture = ExtResource("2_pi1jo")
 
 [node name="TopSprite" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -15)
 texture = ExtResource("3_kx1fk")
 

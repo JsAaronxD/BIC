@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal score_updated(new_score)
 @export var tile_size := 32
 @export var ice_block_scene: PackedScene
 @export var block_delay := 0.1
@@ -82,7 +83,7 @@ func _input(event):
 func add_points(amount: int) -> void:
 	score += amount
 	print("Puntos: ", score)
-	
+	score_updated.emit(score)
 	
 func game_over() -> void:
 	var game_over_screen = get_parent().get_node("GameOverScreen")
@@ -105,9 +106,6 @@ func place_or_break_blocks() -> void:
 	var start_pos = global_position + dir * tile_size
 	var space_state := get_world_2d().direct_space_state
 
-	# ────────────────
-	# 1️⃣ Primero, revisamos si el primer tile frente al jugador tiene bloques
-	# ────────────────
 	var params := PhysicsPointQueryParameters2D.new()
 	params.position = start_pos
 	params.collide_with_bodies = true

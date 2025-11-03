@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var points: int = 10
+@export var points: int = 50
 @onready var sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:

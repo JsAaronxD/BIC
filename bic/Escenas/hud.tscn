@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://biscodhyho5cs"]
+
+[ext_resource type="Script" uid="uid://cs0oi4tusqp8t" path="res://Escenas/hud.gd" id="1_v1vk6"]
+[ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="2_5x6hg"]
+[ext_resource type="Texture2D" uid="uid://dd5wkc2wtom1r" path="res://assets/hud_bic.png" id="3_5x6hg"]
+[ext_resource type="PackedScene" uid="uid://c6qbodl77642h" path="res://Escenas/pause_menu.tscn" id="4_2in0g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2in0g"]
+font_size = 30
+font_color = Color(1, 1, 0, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2in0g"]
+atlas = ExtResource("3_5x6hg")
+region = Rect2(185.74, 18.6793, 22.0065, 21.548)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x6hg"]
+atlas = ExtResource("3_5x6hg")
+region = Rect2(177.649, 18.2477, 8.05161, 10.2776)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd6er"]
+atlas = ExtResource("3_5x6hg")
+region = Rect2(177.325, 28.6786, 8.23434, 10.0256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqa34"]
+atlas = ExtResource("3_5x6hg")
+region = Rect2(177.672, 28.4755, 8.07393, 10.1058)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwpan"]
+atlas = SubResource("AtlasTexture_hqa34")
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_v1vk6")
+
+[node name="ScoreLabel" type="Label" parent="."]
+texture_filter = 1
+offset_left = 76.0
+offset_top = 34.0
+offset_right = 196.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("2_5x6hg")
+theme_override_font_sizes/font_size = 30
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_2in0g")
+
+[node name="player1" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1144.0
+offset_top = 8.0
+offset_right = -1080.0
+offset_bottom = 78.0
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_2in0g")
+
+[node name="PauseButton" type="TextureButton" parent="."]
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 42.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_5x6hg")
+texture_pressed = SubResource("AtlasTexture_qd6er")
+texture_hover = SubResource("AtlasTexture_pwpan")
+stretch_mode = 0
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_2in0g")]
+visible = false
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
