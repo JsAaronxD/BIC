@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://biscodhyho5cs"]
+[gd_scene load_steps=12 format=3 uid="uid://biscodhyho5cs"]
 
 [ext_resource type="Script" uid="uid://cs0oi4tusqp8t" path="res://Escenas/hud.gd" id="1_v1vk6"]
 [ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="2_5x6hg"]
@@ -29,6 +29,10 @@ region = Rect2(177.672, 28.4755, 8.07393, 10.1058)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwpan"]
 atlas = SubResource("AtlasTexture_hqa34")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7i4r"]
+atlas = ExtResource("3_5x6hg")
+region = Rect2(0.44, 0.433, 18, 18)
 
 [node name="HUD" type="CanvasLayer"]
 process_mode = 3
@@ -62,10 +66,10 @@ texture_filter = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -38.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = 42.0
+offset_left = -42.0
+offset_top = 10.0
+offset_right = -9.0
+offset_bottom = 47.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -77,4 +81,46 @@ stretch_mode = 0
 [node name="PauseMenu" parent="." instance=ExtResource("4_2in0g")]
 visible = false
 
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 121.0
+one_shot = true
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.899
+anchor_top = 0.048
+anchor_right = 0.899
+anchor_bottom = 0.048
+offset_left = -48.6481
+offset_top = -20.768
+offset_right = 48.3519
+offset_bottom = 24.232
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_5x6hg")
+theme_override_font_sizes/font_size = 42
+text = "2:00"
+
+[node name="TimerUpdaterLabel" type="Timer" parent="."]
+autostart = true
+
+[node name="Reloj" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.826
+anchor_top = 0.047
+anchor_right = 0.826
+anchor_bottom = 0.047
+offset_left = -40.5521
+offset_top = -25.127
+offset_right = 10.4479
+offset_bottom = 25.873
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_y7i4r")
+
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
+[connection signal="timeout" from="TimerUpdaterLabel" to="." method="_on_timer_updater_label_timeout"]

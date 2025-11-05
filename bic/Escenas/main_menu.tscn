@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b2n7af0mqcr5t" path="res://Escenas/main_menu.gd" id="1_a3sw6"]
 [ext_resource type="Theme" uid="uid://chvhkfck1givs" path="res://ui/menu_theme.tres" id="1_a082v"]
-[ext_resource type="PackedScene" uid="uid://dh3d8gs8ivjae" path="res://Escenas/level_1.tscn" id="2_hjcy7"]
 [ext_resource type="VideoStream" uid="uid://om6vvo27apd" path="res://assets/background_menu.ogv" id="3_7ms0u"]
+[ext_resource type="PackedScene" uid="uid://c562llx7m74wj" path="res://Escenas/lvl1.tscn" id="3_7rocb"]
 [ext_resource type="AudioStream" uid="uid://lyeiry8i664g" path="res://sounds/bic_menu_music.mp3" id="3_hjcy7"]
 [ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="3_qn7j5"]
 [ext_resource type="Texture2D" uid="uid://d1mjpf7wxpm2d" path="res://assets/ice_cream_background.png" id="4_xgkoo"]
@@ -31,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_a082v")
 script = ExtResource("1_a3sw6")
-game_scene = ExtResource("2_hjcy7")
+game_scene = ExtResource("3_7rocb")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 1

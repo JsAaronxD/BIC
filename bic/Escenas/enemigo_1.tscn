@@ -265,7 +265,7 @@ script = ExtResource("1_stxb1")
 texture_filter = 1
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_wyelm")
-animation = &"walk_up"
+animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
@@ -281,4 +281,5 @@ position = Vector2(0, -24)
 texture_filter = 1
 position = Vector2(1, 6)
 shape = SubResource("RectangleShape2D_8lmw4")
+one_way_collision_margin = 0.0
 debug_color = Color(1, 0, 0, 0.419608)

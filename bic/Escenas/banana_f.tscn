@@ -11,7 +11,7 @@ region = Rect2(35.8966, -0.243777, 32.1328, 32.2851)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eilfr"]
 size = Vector2(30, 30)
 
-[node name="banana_f" type="Area2D"]
+[node name="banana_f" type="Area2D" groups=["fruit"]]
 script = ExtResource("1_5u4kl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

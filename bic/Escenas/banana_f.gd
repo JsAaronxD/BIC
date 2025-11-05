@@ -2,6 +2,7 @@ extends Area2D
 
 @export var points: int = 50
 @onready var sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var sprite: Sprite2D = $Sprite2D # <--- AÑADE ESTO
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -19,3 +20,13 @@ func _play_sound():
 	get_parent().add_child(sfx)
 	sfx.play()
 	sfx.finished.connect(sfx.queue_free)
+
+# --- AÑADE ESTA NUEVA FUNCIÓN ---
+# Esta función controlará el color.
+func set_on_ice(is_on_ice: bool):
+	if is_on_ice:
+		# Color azul oscuro
+		sprite.modulate = Color(0.2, 0.3, 0.8)
+	else:
+		# Color normal (blanco)
+		sprite.modulate = Color(1.0, 1.0, 1.0)

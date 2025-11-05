@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+@onready var lose_sound: AudioStreamPlayer = $death_sound
+@onready var lose_music: AudioStreamPlayer = $lose_music
+
 func _ready() -> void:
 	visible = false
 	get_tree().paused = false
@@ -8,6 +11,8 @@ func _ready() -> void:
 func show_game_over() -> void:
 	visible = true
 	get_tree().paused = true
+	lose_sound.play()
+	lose_music.play()
 
 func _on_retry_button_pressed() -> void:
 	get_tree().paused = false

@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfbv0n5fptohv"]
+[gd_scene load_steps=10 format=3 uid="uid://dfbv0n5fptohv"]
 
 [ext_resource type="Script" uid="uid://jhgi2ifv73c5" path="res://Escenas/game_over_screen.gd" id="1_ipor6"]
 [ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="2_5wr88"]
 [ext_resource type="Texture2D" uid="uid://d1mjpf7wxpm2d" path="res://assets/ice_cream_background.png" id="2_07lje"]
 [ext_resource type="Shader" uid="uid://cnaql23erjyjd" path="res://Escenas/menu.gdshader" id="2_cfsex"]
 [ext_resource type="Theme" uid="uid://chvhkfck1givs" path="res://ui/menu_theme.tres" id="3_cfsex"]
+[ext_resource type="AudioStream" uid="uid://cb4l4ej0ajuyu" path="res://sounds/sfx_death.wav" id="6_lljsr"]
+[ext_resource type="AudioStream" uid="uid://cic5a034ivw2" path="res://sounds/bic_lose_music.wav" id="7_0r3j2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lljsr"]
 shader = ExtResource("2_cfsex")
@@ -99,6 +101,12 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_5wr88")
 text = "Salir"
 flat = true
+
+[node name="death_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lljsr")
+
+[node name="lose_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0r3j2")
 
 [connection signal="pressed" from="Panel/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]

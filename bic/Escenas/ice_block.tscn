@@ -8,6 +8,7 @@
 size = Vector2(32, 32)
 
 [node name="ice_block" type="StaticBody2D" groups=["ice_block"]]
+position = Vector2(0, -15)
 script = ExtResource("1_1d06i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
