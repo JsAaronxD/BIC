@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dqs57hv45ji70"]
+[gd_scene load_steps=20 format=4 uid="uid://dqs57hv45ji70"]
 
 [ext_resource type="Texture2D" uid="uid://c7eimbu4tsj6e" path="res://assets/map/tiles.png" id="1_lmg1i"]
 [ext_resource type="Shader" uid="uid://cavslcabm311q" path="res://Escenas/level_1.gdshader" id="2_whu5v"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b5v3rohja133x" path="res://Escenas/player.tscn" id="6_ni7k0"]
 [ext_resource type="PackedScene" uid="uid://c3c8njjvo0wey" path="res://Escenas/enemigo_1.tscn" id="7_jvn38"]
 [ext_resource type="PackedScene" uid="uid://dfbv0n5fptohv" path="res://Escenas/game_over_screen.tscn" id="8_rjbr6"]
-[ext_resource type="Texture2D" uid="uid://dxnuxyp5f2lvo" path="res://assets/iglu.png" id="9_lshvs"]
 [ext_resource type="AudioStream" uid="uid://48eonp4f6ycx" path="res://sounds/bic_main_music.mp3" id="10_qr6w4"]
 [ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="11_c4iof"]
 [ext_resource type="PackedScene" uid="uid://biscodhyho5cs" path="res://Escenas/hud.tscn" id="12_rbmyi"]
@@ -49,9 +48,6 @@ sources/0 = SubResource("TileSetAtlasSource_6phmv")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1j15j"]
 shader = ExtResource("2_whu5v")
 shader_parameter/blur_amount = 0.003
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1smaq"]
-size = Vector2(386.032, 395.438)
 
 [sub_resource type="Animation" id="Animation_hltmg"]
 length = 0.001
@@ -116,7 +112,7 @@ tile_set = SubResource("TileSet_enc5w")
 z_index = -8
 texture_filter = 1
 material = SubResource("ShaderMaterial_1j15j")
-position = Vector2(800, 320)
+position = Vector2(800, 322)
 scale = Vector2(1, 1.03548)
 texture = ExtResource("3_7kk3g")
 
@@ -124,107 +120,17 @@ texture = ExtResource("3_7kk3g")
 y_sort_enabled = true
 texture_filter = 1
 
-[node name="banana_f" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(688, 480)
-
-[node name="banana_f2" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(464, 480)
-
-[node name="banana_f3" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(464, 224)
-
-[node name="banana_f4" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(688, 224)
-
-[node name="banana_f5" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(464, 448)
-
-[node name="banana_f6" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(336, 320)
-
-[node name="banana_f7" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(336, 352)
-
-[node name="banana_f8" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(336, 384)
-
-[node name="banana_f9" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(496, 480)
-
-[node name="banana_f10" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(816, 384)
-
 [node name="banana_f11" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(528, 96)
+position = Vector2(496, 128)
 
 [node name="banana_f12" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(560, 96)
+position = Vector2(528, 128)
 
 [node name="banana_f13" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(592, 96)
-
-[node name="banana_f14" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(816, 352)
-
-[node name="banana_f15" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(656, 224)
-
-[node name="banana_f16" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(496, 224)
-
-[node name="banana_f17" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(464, 256)
-
-[node name="banana_f18" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(528, 224)
-
-[node name="banana_f19" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(624, 224)
-
-[node name="banana_f20" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(464, 288)
-
-[node name="banana_f21" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(688, 256)
-
-[node name="banana_f22" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(688, 288)
-
-[node name="banana_f23" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(816, 320)
-
-[node name="banana_f24" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(464, 416)
-
-[node name="banana_f25" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(528, 480)
-
-[node name="banana_f26" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(656, 480)
-
-[node name="banana_f27" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(624, 480)
-
-[node name="banana_f28" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(688, 448)
-
-[node name="banana_f29" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(688, 416)
-
-[node name="banana_f30" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(592, 576)
+position = Vector2(624, 128)
 
 [node name="banana_f31" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(624, 96)
-
-[node name="banana_f32" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(624, 576)
-
-[node name="banana_f33" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(560, 576)
-
-[node name="banana_f34" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(529, 576)
+position = Vector2(656, 128)
 
 [node name="ice_block" parent="base" instance=ExtResource("5_0sh5c")]
 position = Vector2(336, 593)
@@ -419,88 +325,750 @@ position = Vector2(848, 529)
 [node name="ice_block64" parent="base" instance=ExtResource("5_0sh5c")]
 position = Vector2(848, 561)
 
-[node name="ice_block65" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(720, 177)
-
-[node name="ice_block66" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(432, 177)
-
-[node name="ice_block67" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(464, 177)
-
-[node name="ice_block68" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(688, 177)
-
-[node name="ice_block69" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(432, 209)
-
-[node name="ice_block70" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(720, 209)
-
-[node name="ice_block71" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(432, 305)
-
-[node name="ice_block72" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(432, 337)
-
-[node name="ice_block73" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(432, 369)
-
-[node name="ice_block74" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(432, 465)
-
-[node name="ice_block75" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(720, 305)
-
-[node name="ice_block76" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(720, 337)
-
-[node name="ice_block77" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(720, 369)
-
-[node name="ice_block78" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(720, 465)
-
-[node name="ice_block79" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(432, 497)
-
-[node name="ice_block80" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(464, 497)
-
-[node name="ice_block81" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(720, 497)
-
-[node name="ice_block82" parent="base" instance=ExtResource("5_0sh5c")]
-position = Vector2(688, 497)
-
 [node name="Player" parent="base" groups=["player"] instance=ExtResource("6_ni7k0")]
-position = Vector2(496, 497)
+position = Vector2(560, 177)
 safe_margin = 0.001
 ice_block_scene = ExtResource("5_0sh5c")
 
 [node name="Enemigo2" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
-position = Vector2(815, 97)
+position = Vector2(592, 130)
 
 [node name="Enemigo3" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
-position = Vector2(463, 226)
+position = Vector2(367, 322)
 
 [node name="GameOverScreen" parent="base" instance=ExtResource("8_rjbr6")]
 visible = false
 
+[node name="ice_block83" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 81)
+
+[node name="ice_block84" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(368, 81)
+
+[node name="ice_block85" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 81)
+
+[node name="ice_block86" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 81)
+
+[node name="ice_block87" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 81)
+
+[node name="ice_block88" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 81)
+
+[node name="ice_block89" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 81)
+
+[node name="ice_block90" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 81)
+
+[node name="ice_block91" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 81)
+
+[node name="ice_block92" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 81)
+
+[node name="ice_block93" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 81)
+
+[node name="ice_block94" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 81)
+
+[node name="ice_block95" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 81)
+
+[node name="ice_block96" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 81)
+
+[node name="ice_block97" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(784, 81)
+
+[node name="ice_block98" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 81)
+
+[node name="ice_block99" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 113)
+
+[node name="ice_block100" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(368, 113)
+
+[node name="ice_block101" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 113)
+
+[node name="ice_block102" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 113)
+
+[node name="ice_block103" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 113)
+
+[node name="ice_block110" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 113)
+
+[node name="ice_block111" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 113)
+
+[node name="ice_block112" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 113)
+
+[node name="ice_block113" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(784, 113)
+
+[node name="ice_block114" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 113)
+
+[node name="ice_block104" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 145)
+
+[node name="ice_block105" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(368, 145)
+
+[node name="ice_block108" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 145)
+
+[node name="ice_block109" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 145)
+
+[node name="ice_block115" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 145)
+
+[node name="ice_block116" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 145)
+
+[node name="ice_block117" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 145)
+
+[node name="ice_block118" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 145)
+
+[node name="ice_block119" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 145)
+
+[node name="ice_block120" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 145)
+
+[node name="ice_block121" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 145)
+
+[node name="ice_block122" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 145)
+
+[node name="ice_block123" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 145)
+
+[node name="ice_block124" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 145)
+
+[node name="ice_block125" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(784, 145)
+
+[node name="ice_block126" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 145)
+
+[node name="ice_block65" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 177)
+
+[node name="ice_block66" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(368, 177)
+
+[node name="ice_block67" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 177)
+
+[node name="ice_block68" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 177)
+
+[node name="ice_block69" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 177)
+
+[node name="ice_block70" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 177)
+
+[node name="ice_block74" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 177)
+
+[node name="ice_block75" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 177)
+
+[node name="ice_block76" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 177)
+
+[node name="ice_block77" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 177)
+
+[node name="ice_block78" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 177)
+
+[node name="ice_block79" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(784, 177)
+
+[node name="ice_block80" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 177)
+
+[node name="ice_block106" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 209)
+
+[node name="ice_block127" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 209)
+
+[node name="ice_block128" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 209)
+
+[node name="ice_block129" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 209)
+
+[node name="ice_block130" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 209)
+
+[node name="ice_block131" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 209)
+
+[node name="ice_block132" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 209)
+
+[node name="ice_block133" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 209)
+
+[node name="ice_block134" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 209)
+
+[node name="ice_block135" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 209)
+
+[node name="ice_block136" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 209)
+
+[node name="ice_block137" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 209)
+
+[node name="ice_block138" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 209)
+
+[node name="ice_block140" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 209)
+
+[node name="ice_block141" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 241)
+
+[node name="ice_block143" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 241)
+
+[node name="ice_block144" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 241)
+
+[node name="ice_block145" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 241)
+
+[node name="ice_block146" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 241)
+
+[node name="ice_block147" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 241)
+
+[node name="ice_block148" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 241)
+
+[node name="ice_block149" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 241)
+
+[node name="ice_block150" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 241)
+
+[node name="ice_block151" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 241)
+
+[node name="ice_block152" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 241)
+
+[node name="ice_block153" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 241)
+
+[node name="ice_block154" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 241)
+
+[node name="ice_block156" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 241)
+
+[node name="ice_block81" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 273)
+
+[node name="ice_block157" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 273)
+
+[node name="ice_block158" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 273)
+
+[node name="ice_block159" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 273)
+
+[node name="ice_block160" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 273)
+
+[node name="ice_block161" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 273)
+
+[node name="ice_block162" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 273)
+
+[node name="ice_block163" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 273)
+
+[node name="ice_block164" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 273)
+
+[node name="ice_block165" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 273)
+
+[node name="ice_block166" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 273)
+
+[node name="ice_block167" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 273)
+
+[node name="ice_block168" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 273)
+
+[node name="ice_block170" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 273)
+
+[node name="ice_block171" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 305)
+
+[node name="ice_block173" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 305)
+
+[node name="ice_block174" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 305)
+
+[node name="ice_block175" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 305)
+
+[node name="ice_block176" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 305)
+
+[node name="ice_block177" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 305)
+
+[node name="ice_block178" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 305)
+
+[node name="ice_block179" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 305)
+
+[node name="ice_block180" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 305)
+
+[node name="ice_block181" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 305)
+
+[node name="ice_block182" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 305)
+
+[node name="ice_block183" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 305)
+
+[node name="ice_block184" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 305)
+
+[node name="ice_block186" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 305)
+
+[node name="ice_block187" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 337)
+
+[node name="ice_block189" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 337)
+
+[node name="ice_block190" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 337)
+
+[node name="ice_block191" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 337)
+
+[node name="ice_block192" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 337)
+
+[node name="ice_block193" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 337)
+
+[node name="ice_block194" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 337)
+
+[node name="ice_block195" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 337)
+
+[node name="ice_block196" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 337)
+
+[node name="ice_block197" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 337)
+
+[node name="ice_block198" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 337)
+
+[node name="ice_block199" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 337)
+
+[node name="ice_block200" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 337)
+
+[node name="ice_block202" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 337)
+
+[node name="ice_block203" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 369)
+
+[node name="ice_block205" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 369)
+
+[node name="ice_block206" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 369)
+
+[node name="ice_block207" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 369)
+
+[node name="ice_block208" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 369)
+
+[node name="ice_block209" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 369)
+
+[node name="ice_block210" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 369)
+
+[node name="ice_block211" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 369)
+
+[node name="ice_block212" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 369)
+
+[node name="ice_block213" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 369)
+
+[node name="ice_block214" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 369)
+
+[node name="ice_block215" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 369)
+
+[node name="ice_block216" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 369)
+
+[node name="ice_block218" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 369)
+
+[node name="ice_block219" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 401)
+
+[node name="ice_block220" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(368, 401)
+
+[node name="ice_block221" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 401)
+
+[node name="ice_block222" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 401)
+
+[node name="ice_block223" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 401)
+
+[node name="ice_block224" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 401)
+
+[node name="ice_block225" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 401)
+
+[node name="ice_block226" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 401)
+
+[node name="ice_block227" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 401)
+
+[node name="ice_block228" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 401)
+
+[node name="ice_block229" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 401)
+
+[node name="ice_block230" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 401)
+
+[node name="ice_block231" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 401)
+
+[node name="ice_block232" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 401)
+
+[node name="ice_block233" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(784, 401)
+
+[node name="ice_block234" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 401)
+
+[node name="ice_block235" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 433)
+
+[node name="ice_block236" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(368, 433)
+
+[node name="ice_block237" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 433)
+
+[node name="ice_block238" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 433)
+
+[node name="ice_block239" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 433)
+
+[node name="ice_block240" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 433)
+
+[node name="ice_block241" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 433)
+
+[node name="ice_block242" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 433)
+
+[node name="ice_block243" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 433)
+
+[node name="ice_block244" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 433)
+
+[node name="ice_block245" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 433)
+
+[node name="ice_block246" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 433)
+
+[node name="ice_block247" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 433)
+
+[node name="ice_block248" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 433)
+
+[node name="ice_block249" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(784, 433)
+
+[node name="ice_block250" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 433)
+
+[node name="ice_block251" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 465)
+
+[node name="ice_block252" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(368, 465)
+
+[node name="ice_block253" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 465)
+
+[node name="ice_block254" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 465)
+
+[node name="ice_block255" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 465)
+
+[node name="ice_block256" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 465)
+
+[node name="ice_block257" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 465)
+
+[node name="ice_block258" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 465)
+
+[node name="ice_block259" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 465)
+
+[node name="ice_block260" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 465)
+
+[node name="ice_block261" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 465)
+
+[node name="ice_block262" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 465)
+
+[node name="ice_block263" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 465)
+
+[node name="ice_block264" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 465)
+
+[node name="ice_block265" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(784, 465)
+
+[node name="ice_block266" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 465)
+
+[node name="ice_block267" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 497)
+
+[node name="ice_block268" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(368, 497)
+
+[node name="ice_block269" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 497)
+
+[node name="ice_block270" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 497)
+
+[node name="ice_block271" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 497)
+
+[node name="ice_block272" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 497)
+
+[node name="ice_block273" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 497)
+
+[node name="ice_block274" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 497)
+
+[node name="ice_block275" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 497)
+
+[node name="ice_block276" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 497)
+
+[node name="ice_block277" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 497)
+
+[node name="ice_block278" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 497)
+
+[node name="ice_block279" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 497)
+
+[node name="ice_block280" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 497)
+
+[node name="ice_block281" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(784, 497)
+
+[node name="ice_block282" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 497)
+
+[node name="ice_block299" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 561)
+
+[node name="ice_block300" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(368, 561)
+
+[node name="ice_block301" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 561)
+
+[node name="ice_block302" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 561)
+
+[node name="ice_block303" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 561)
+
+[node name="ice_block304" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(496, 561)
+
+[node name="ice_block305" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(528, 561)
+
+[node name="ice_block306" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(560, 561)
+
+[node name="ice_block307" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(592, 561)
+
+[node name="ice_block308" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(624, 561)
+
+[node name="ice_block309" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(656, 561)
+
+[node name="ice_block310" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 561)
+
+[node name="ice_block311" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 561)
+
+[node name="ice_block312" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 561)
+
+[node name="ice_block313" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(784, 561)
+
+[node name="ice_block314" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 561)
+
+[node name="banana_f17" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(496, 544)
+
+[node name="banana_f18" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(528, 544)
+
+[node name="banana_f19" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(624, 544)
+
+[node name="banana_f33" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(656, 544)
+
+[node name="Enemigo5" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
+position = Vector2(592, 546)
+
+[node name="ice_block283" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(336, 529)
+
+[node name="ice_block284" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(368, 529)
+
+[node name="ice_block285" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(400, 529)
+
+[node name="ice_block286" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(432, 529)
+
+[node name="ice_block287" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(464, 529)
+
+[node name="ice_block288" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(688, 529)
+
+[node name="ice_block289" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(720, 529)
+
+[node name="ice_block290" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(752, 529)
+
+[node name="ice_block291" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(784, 529)
+
+[node name="ice_block292" parent="base" instance=ExtResource("5_0sh5c")]
+position = Vector2(816, 529)
+
+[node name="banana_f" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(368, 352)
+
+[node name="banana_f2" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(368, 224)
+
+[node name="banana_f3" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(368, 256)
+
+[node name="banana_f4" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(368, 384)
+
+[node name="Enemigo6" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
+position = Vector2(783, 322)
+
+[node name="banana_f5" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(784, 352)
+
+[node name="banana_f6" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(784, 224)
+
+[node name="banana_f7" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(784, 256)
+
+[node name="banana_f8" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(784, 384)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture_filter = 1
-position = Vector2(576, 320)
-scale = Vector2(0.336842, 0.352617)
-texture = ExtResource("9_lshvs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-texture_filter = 1
-position = Vector2(576, 320)
-scale = Vector2(0.331579, 0.323691)
-shape = SubResource("RectangleShape2D_1smaq")
-one_way_collision_margin = 0.0
 
 [node name="soundtrack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_qr6w4")
@@ -527,7 +1095,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 11
 theme_override_fonts/font = ExtResource("11_c4iof")
 theme_override_font_sizes/font_size = 64
-text = "Nivel 1-2"
+text = "Nivel 2-2"
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="nivel1"]
