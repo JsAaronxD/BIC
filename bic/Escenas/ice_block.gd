@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@onready var body_sprite: Sprite2D = $BodySprite
+@onready var body_sprite: Sprite2D = $Sprite2D
 @onready var top_sprite: Sprite2D = $TopSprite
 
 @export var tile_size: int = 32
@@ -25,27 +25,9 @@ func break_block():
 # Actualiza visibilidad de las partes segun bloques vecinos
 func update_visibility():
 	# si faltan sprites, evitamos errores
-	if not body_sprite:
+	if body_sprite:
 		return
 
-	# ¿hay bloque justo ENCIMA?
-	var above = _get_block_at(global_position + Vector2(0, -tile_size))
-	# ¿hay bloque justo DEBAJO?
-	var below = _get_block_at(global_position + Vector2(0, tile_size))
-
-	# REGLA pedida: cuando haya un bloque encima, **ocultamos la parte de abajo** (body)
-	# (si NO hay bloque encima, mostramos la parte de abajo)
-	body_sprite.visible = not (above != null)
-
-	# TopSprite (brillo): normalmente se muestra si NO hay bloque encima (top-most)
-	if top_sprite:
-		top_sprite.visible = (above == null)
-
-	# Opcional: si un bloque está debajo y queremos ajustar su visibilidad ahora:
-	# if below:
-	#     below.update_visibility()
-
-# NOTIFICACIONES para que vecinos se actualicen al crear/romper
 func _notify_neighbors_of_change():
 	# actualiza el bloque encima y el debajo si existen
 	var above = _get_block_at(global_position + Vector2(0, -tile_size))
