@@ -110,14 +110,14 @@ autostart = true
 [node name="Reloj" type="TextureRect" parent="."]
 texture_filter = 1
 anchors_preset = -1
-anchor_left = 0.826
-anchor_top = 0.047
-anchor_right = 0.826
-anchor_bottom = 0.047
-offset_left = -40.5521
-offset_top = -25.127
-offset_right = 10.4479
-offset_bottom = 25.873
+anchor_left = 0.803
+anchor_top = 0.048
+anchor_right = 0.803
+anchor_bottom = 0.048
+offset_left = -25.056
+offset_top = -25.768
+offset_right = 25.944
+offset_bottom = 25.232
 grow_horizontal = 0
 texture = SubResource("AtlasTexture_y7i4r")
 

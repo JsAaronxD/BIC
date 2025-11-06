@@ -101,6 +101,7 @@ _data = {
 }
 
 [node name="nivel 2" type="Node2D"]
+texture_filter = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
@@ -120,6 +121,30 @@ texture = ExtResource("3_7kk3g")
 y_sort_enabled = true
 texture_filter = 1
 
+[node name="banana_f" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(368, 352)
+
+[node name="banana_f2" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(368, 224)
+
+[node name="banana_f3" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(368, 256)
+
+[node name="banana_f4" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(368, 384)
+
+[node name="banana_f5" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(784, 352)
+
+[node name="banana_f6" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(784, 224)
+
+[node name="banana_f7" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(784, 256)
+
+[node name="banana_f8" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(784, 384)
+
 [node name="banana_f11" parent="base" instance=ExtResource("4_a8tit")]
 position = Vector2(496, 128)
 
@@ -128,6 +153,18 @@ position = Vector2(528, 128)
 
 [node name="banana_f13" parent="base" instance=ExtResource("4_a8tit")]
 position = Vector2(624, 128)
+
+[node name="banana_f17" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(496, 544)
+
+[node name="banana_f18" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(528, 544)
+
+[node name="banana_f19" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(624, 544)
+
+[node name="banana_f33" parent="base" instance=ExtResource("4_a8tit")]
+position = Vector2(656, 544)
 
 [node name="banana_f31" parent="base" instance=ExtResource("4_a8tit")]
 position = Vector2(656, 128)
@@ -324,20 +361,6 @@ position = Vector2(848, 529)
 
 [node name="ice_block64" parent="base" instance=ExtResource("5_0sh5c")]
 position = Vector2(848, 561)
-
-[node name="Player" parent="base" groups=["player"] instance=ExtResource("6_ni7k0")]
-position = Vector2(560, 177)
-safe_margin = 0.001
-ice_block_scene = ExtResource("5_0sh5c")
-
-[node name="Enemigo2" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
-position = Vector2(592, 130)
-
-[node name="Enemigo3" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
-position = Vector2(367, 322)
-
-[node name="GameOverScreen" parent="base" instance=ExtResource("8_rjbr6")]
-visible = false
 
 [node name="ice_block83" parent="base" instance=ExtResource("5_0sh5c")]
 position = Vector2(336, 81)
@@ -996,21 +1019,6 @@ position = Vector2(784, 561)
 [node name="ice_block314" parent="base" instance=ExtResource("5_0sh5c")]
 position = Vector2(816, 561)
 
-[node name="banana_f17" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(496, 544)
-
-[node name="banana_f18" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(528, 544)
-
-[node name="banana_f19" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(624, 544)
-
-[node name="banana_f33" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(656, 544)
-
-[node name="Enemigo5" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
-position = Vector2(592, 546)
-
 [node name="ice_block283" parent="base" instance=ExtResource("5_0sh5c")]
 position = Vector2(336, 529)
 
@@ -1041,32 +1049,26 @@ position = Vector2(784, 529)
 [node name="ice_block292" parent="base" instance=ExtResource("5_0sh5c")]
 position = Vector2(816, 529)
 
-[node name="banana_f" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(368, 352)
+[node name="Player" parent="base" node_paths=PackedStringArray("hud") groups=["player"] instance=ExtResource("6_ni7k0")]
+position = Vector2(560, 177)
+safe_margin = 0.001
+ice_block_scene = ExtResource("5_0sh5c")
+hud = NodePath("../../HUD")
 
-[node name="banana_f2" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(368, 224)
+[node name="Enemigo2" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
+position = Vector2(592, 130)
 
-[node name="banana_f3" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(368, 256)
+[node name="Enemigo3" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
+position = Vector2(367, 322)
 
-[node name="banana_f4" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(368, 384)
+[node name="Enemigo5" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
+position = Vector2(592, 546)
 
 [node name="Enemigo6" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
 position = Vector2(783, 322)
 
-[node name="banana_f5" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(784, 352)
-
-[node name="banana_f6" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(784, 224)
-
-[node name="banana_f7" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(784, 256)
-
-[node name="banana_f8" parent="base" instance=ExtResource("4_a8tit")]
-position = Vector2(784, 384)
+[node name="GameOverScreen" parent="base" instance=ExtResource("8_rjbr6")]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -1075,9 +1077,9 @@ stream = ExtResource("10_qr6w4")
 volume_db = -11.118
 autoplay = true
 
-[node name="nivel1" type="CanvasLayer" parent="."]
+[node name="nivel2" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="nivel1"]
+[node name="Label" type="Label" parent="nivel2"]
 modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 anchors_preset = 8
@@ -1098,10 +1100,12 @@ theme_override_font_sizes/font_size = 64
 text = "Nivel 2-2"
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="nivel1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="nivel2"]
 libraries = {
 &"": SubResource("AnimationLibrary_lml88")
 }
 autoplay = "fade_in_out"
 
 [node name="HUD" parent="." instance=ExtResource("12_rbmyi")]
+
+[connection signal="score_updated" from="base/Player" to="HUD" method="_on_player_score_updated"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://of51iyj2vdk7"]
+
+[ext_resource type="Script" uid="uid://c7y618nh7wwub" path="res://uvas_f.gd" id="1_1d7sx"]
+[ext_resource type="Texture2D" uid="uid://db6phmtlocjt2" path="res://assets/frutas.png" id="2_kw45k"]
+[ext_resource type="AudioStream" uid="uid://cmvre12c3gebs" path="res://sounds/sfx_eat.wav" id="3_jms3t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8obdk"]
+atlas = ExtResource("2_kw45k")
+region = Rect2(150, 0, 32, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipbr0"]
+size = Vector2(30, 30)
+
+[node name="uvas_f" type="Area2D" groups=["second_fruit"]]
+script = ExtResource("1_1d7sx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -16.25)
+scale = Vector2(1, 0.996644)
+texture = SubResource("AtlasTexture_8obdk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_ipbr0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jms3t")
+volume_db = 24.0
+max_distance = 1.0

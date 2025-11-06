@@ -1,20 +1,16 @@
 extends Area2D
 
-signal banana_eaten
-
 @export var points: int = 50
 @onready var sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
-	add_to_group("fruit")
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		body.add_points(points)
 		_play_sound()
-		banana_eaten.emit()
 		queue_free()
 
 func _play_sound():
@@ -25,8 +21,7 @@ func _play_sound():
 	sfx.play()
 	sfx.finished.connect(sfx.queue_free)
 
-# --- AÑADE ESTA NUEVA FUNCIÓN ---
-# Esta función controlará el color.
+# Esta función controla el color.
 func set_on_ice(is_on_ice: bool):
 	if is_on_ice:
 		# Color azul oscuro
