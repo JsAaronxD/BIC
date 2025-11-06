@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var pause_menu: Control = $PauseMenu
 @onready var level_timer: Timer = $LevelTimer
 @onready var timer_label: Label = $TimerLabel
+var level_score: int = 0
 
 @onready var reloj_atlas: AtlasTexture = $Reloj.texture
 
@@ -24,6 +25,9 @@ func _process(delta):
 func toggle_pause_menu():
 	var new_pause_state = !get_tree().paused
 	get_tree().paused = new_pause_state
+	
+	$LevelTimer.paused = new_pause_state
+	$TimerUpdaterLabel.paused = new_pause_state
 	
 	if new_pause_state:
 		pause_menu.show()
@@ -52,6 +56,8 @@ func _on_pause_button_pressed():
 # Esta función se activa con la señal del botón "Reanudar"
 func _on_resume_pressed():
 	get_tree().paused = false
+	$LevelTimer.paused = false
+	$TimerUpdaterLabel.paused = false
 
 # Esta función se activa con la señal del botón "Salir al Menú"
 func _on_quit_pressed():

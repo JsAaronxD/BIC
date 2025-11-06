@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://of51iyj2vdk7"]
 
-[ext_resource type="Script" uid="uid://c7y618nh7wwub" path="res://uvas_f.gd" id="1_1d7sx"]
+[ext_resource type="Script" uid="uid://c7y618nh7wwub" path="res://Escenas/uvas_f.gd" id="1_1d7sx"]
 [ext_resource type="Texture2D" uid="uid://db6phmtlocjt2" path="res://assets/frutas.png" id="2_kw45k"]
 [ext_resource type="AudioStream" uid="uid://cmvre12c3gebs" path="res://sounds/sfx_eat.wav" id="3_jms3t"]
 

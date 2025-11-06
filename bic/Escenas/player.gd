@@ -222,6 +222,6 @@ func _get_fruit_at(world_pos: Vector2) -> Area2D:
 	var hits := space_state.intersect_point(params)
 	for hit in hits:
 		var collider = hit.get("collider")
-		if collider and collider.is_in_group("fruit"):
+		if collider and (collider.is_in_group("fruit") or collider.is_in_group("second_fruit")):
 			return collider
 	return null
