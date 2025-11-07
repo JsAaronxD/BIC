@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var win_music: AudioStreamPlayer = $win_music
+
 # Esta señal le avisará al nivel que debe cambiar de escena
 signal next_level_pressed
 
@@ -8,6 +10,7 @@ func _ready():
 	get_tree().paused = true
 	# Nos aseguramos de que este menú (y su botón) funcione mientras el juego está pausado
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	win_music.play()
 	
 func _on_quit_button_pressed() -> void:
 	get_tree().paused = false

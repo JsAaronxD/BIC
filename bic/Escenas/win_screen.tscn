@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bii7nype42mox"]
+[gd_scene load_steps=9 format=3 uid="uid://bii7nype42mox"]
 
 [ext_resource type="Script" uid="uid://b13d6i4qux1p5" path="res://Escenas/win_screen.gd" id="1_gwa1a"]
 [ext_resource type="Shader" uid="uid://cnaql23erjyjd" path="res://Escenas/menu.gdshader" id="1_reh84"]
 [ext_resource type="Texture2D" uid="uid://d1mjpf7wxpm2d" path="res://assets/ice_cream_background.png" id="2_gwa1a"]
 [ext_resource type="Theme" uid="uid://chvhkfck1givs" path="res://ui/menu_theme.tres" id="3_xtfbb"]
 [ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="4_ehy4v"]
+[ext_resource type="AudioStream" uid="uid://db805ey625j35" path="res://sounds/bic_win_music.wav" id="6_xtfbb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3l26a"]
 shader = ExtResource("1_reh84")
@@ -66,6 +67,9 @@ flat = true
 layout_mode = 2
 text = "Salir"
 flat = true
+
+[node name="win_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_xtfbb")
 
 [connection signal="pressed" from="VBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
