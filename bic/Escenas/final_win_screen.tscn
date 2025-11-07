@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://6hhml0ubjys1"]
+
+[ext_resource type="Script" uid="uid://dogxsclr6a8dv" path="res://Escenas/final_win_screen.gd" id="1_1iapr"]
+[ext_resource type="Shader" uid="uid://cnaql23erjyjd" path="res://Escenas/menu.gdshader" id="1_s21ms"]
+[ext_resource type="Texture2D" uid="uid://d1mjpf7wxpm2d" path="res://assets/ice_cream_background.png" id="2_1iapr"]
+[ext_resource type="Theme" uid="uid://chvhkfck1givs" path="res://ui/menu_theme.tres" id="3_hpr52"]
+[ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="4_0wciy"]
+[ext_resource type="AudioStream" uid="uid://db805ey625j35" path="res://sounds/bic_win_music.wav" id="5_dn5vy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r7kuy"]
+shader = ExtResource("1_s21ms")
+shader_parameter/border_color = Color(0.682353, 0.572549, 0, 1)
+shader_parameter/corner_radius = 0.04
+shader_parameter/border_thickness = 0.02
+
+[sub_resource type="LabelSettings" id="LabelSettings_wcmeq"]
+font_size = 42
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[node name="FinalWinScreen" type="CanvasLayer"]
+script = ExtResource("1_1iapr")
+
+[node name="IceCreamBackground" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_r7kuy")
+position = Vector2(576, 316)
+scale = Vector2(0.234375, 0.309677)
+texture = ExtResource("2_1iapr")
+region_rect = Rect2(1.81531, 0.251709, 1918.18, 619.748)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_hpr52")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0wciy")
+text = "Ganaste!!"
+label_settings = SubResource("LabelSettings_wcmeq")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_0wciy")
+theme_override_font_sizes/font_size = 16
+text = "-"
+horizontal_alignment = 1
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Salir"
+flat = true
+
+[node name="win_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_dn5vy")
+volume_db = -8.889
+
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

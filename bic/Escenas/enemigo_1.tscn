@@ -269,7 +269,7 @@ animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(1, -17)
+position = Vector2(1, -18)
 shape = SubResource("RectangleShape2D_p0su3")
 debug_color = Color(2.59906e-06, 0.579975, 0.802817, 0.42)
 
@@ -279,7 +279,7 @@ position = Vector2(0, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 texture_filter = 1
-position = Vector2(1, 7)
+position = Vector2(1, 6)
 shape = SubResource("RectangleShape2D_8lmw4")
 one_way_collision_margin = 0.0
 debug_color = Color(1, 0, 0, 0.419608)
