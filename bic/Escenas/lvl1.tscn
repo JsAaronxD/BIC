@@ -1,10 +1,12 @@
-[gd_scene load_steps=24 format=4 uid="uid://c562llx7m74wj"]
+[gd_scene load_steps=26 format=4 uid="uid://c562llx7m74wj"]
 
 [ext_resource type="Texture2D" uid="uid://c7eimbu4tsj6e" path="res://assets/map/tiles.png" id="1_bgm7n"]
 [ext_resource type="Script" uid="uid://qylo2v28e70b" path="res://Escenas/lvl_1.gd" id="1_lml88"]
+[ext_resource type="PackedScene" uid="uid://bii7nype42mox" path="res://Escenas/win_screen.tscn" id="2_0kmse"]
 [ext_resource type="Shader" uid="uid://cavslcabm311q" path="res://Escenas/level_1.gdshader" id="2_1et26"]
 [ext_resource type="Texture2D" uid="uid://dxnuxyp5f2lvo" path="res://assets/iglu.png" id="2_ey0sa"]
 [ext_resource type="Texture2D" uid="uid://burxif6q1c1dc" path="res://assets/snow_background.png" id="3_1pbrh"]
+[ext_resource type="PackedScene" uid="uid://dqs57hv45ji70" path="res://Escenas/lvl2.tscn" id="3_k7ddt"]
 [ext_resource type="PackedScene" uid="uid://biscodhyho5cs" path="res://Escenas/hud.tscn" id="4_1pbrh"]
 [ext_resource type="PackedScene" uid="uid://tm24hkxv56h1" path="res://Escenas/ice_block.tscn" id="4_5k7cu"]
 [ext_resource type="PackedScene" uid="uid://of51iyj2vdk7" path="res://Escenas/uvas_f.tscn" id="5_hltmg"]
@@ -110,6 +112,8 @@ _data = {
 y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_lml88")
+victory_screen_scene = ExtResource("2_0kmse")
+next_level_scene = ExtResource("3_k7ddt")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
@@ -291,18 +295,6 @@ position = Vector2(400, 384)
 visible = false
 position = Vector2(400, 320)
 
-[node name="uvas_f22" parent="base" instance=ExtResource("5_hltmg")]
-visible = false
-position = Vector2(400, 352)
-
-[node name="uvas_f23" parent="base" instance=ExtResource("5_hltmg")]
-visible = false
-position = Vector2(400, 384)
-
-[node name="uvas_f24" parent="base" instance=ExtResource("5_hltmg")]
-visible = false
-position = Vector2(400, 320)
-
 [node name="uvas_f25" parent="base" instance=ExtResource("5_hltmg")]
 visible = false
 position = Vector2(752, 352)
@@ -312,18 +304,6 @@ visible = false
 position = Vector2(752, 384)
 
 [node name="uvas_f27" parent="base" instance=ExtResource("5_hltmg")]
-visible = false
-position = Vector2(752, 320)
-
-[node name="uvas_f28" parent="base" instance=ExtResource("5_hltmg")]
-visible = false
-position = Vector2(752, 352)
-
-[node name="uvas_f29" parent="base" instance=ExtResource("5_hltmg")]
-visible = false
-position = Vector2(752, 384)
-
-[node name="uvas_f30" parent="base" instance=ExtResource("5_hltmg")]
 visible = false
 position = Vector2(752, 320)
 

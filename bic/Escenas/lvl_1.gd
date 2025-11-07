@@ -1,37 +1,79 @@
 extends Node2D
 
-var banana_count: int = 0
+@export var victory_screen_scene: PackedScene
+@export var next_level_scene: PackedScene
+
+@onready var hud = $HUD
+
+# Contadores
+var normal_fruit_count: int = 0
+var second_fruit_count: int = 0
+var total_fruit_count: int = 0
 
 func _ready():
-    await get_tree().process_frame
-    
-    # contamos las bananas
-    banana_count = get_tree().get_nodes_in_group("fruit").size()
+	await get_tree().process_frame
+	
+	var fruits = get_tree().get_nodes_in_group("fruit")
+	var second_fruits = get_tree().get_nodes_in_group("second_fruit")
+	
+	normal_fruit_count = fruits.size()
+	second_fruit_count = second_fruits.size()
+	total_fruit_count = normal_fruit_count + second_fruit_count
+	
+	print("Bananas: %s, Uvas: %s" % [normal_fruit_count, second_fruit_count])
 
-    # conectamos la señal a las bananas
-    for banana in get_tree().get_nodes_in_group("fruit"):
-        banana.banana_eaten.connect(_on_banana_eaten)
+	# Conectamos las señales a sus funciones correctas
+	for banana in fruits:
+		banana.banana_eaten.connect(_on_normal_fruit_eaten)
+	for uva in second_fruits:
+		uva.second_fruit_eaten.connect(_on_second_fruit_eaten)
+	
+	# Desactivamos las uvas
+	for uva in second_fruits:
+		uva.hide()
+		uva.monitoring = false
 
-    # apagamos la segunda fruta
-    for fruit in get_tree().get_nodes_in_group("second_fruit"):
-        fruit.hide() # Oculta el sprite
-        
-        # Desactiva la habilidad de la fruta de tener colision
-        fruit.monitoring = false 
-        
+# Esta función se llama SOLO cuando se come una banana
+func _on_normal_fruit_eaten():
+	total_fruit_count -= 1
+	normal_fruit_count -= 1
+	print("Banana comida. Quedan %s bananas. Total frutas: %s" % [normal_fruit_count, total_fruit_count])
 
-func _on_banana_eaten():
-    banana_count -= 1
-    
-    if banana_count <= 0:
-        _show_second_fruits()
+	# Comprobamos si las frutas NORMALES se acabaron
+	if normal_fruit_count <= 0:
+		_show_second_fruits()
+	
+	# Comprobamos si TODAS las frutas se acabaron
+	if total_fruit_count <= 0:
+		_show_victory_screen()
+
+# Esta función se llama SOLO cuando se come una uva
+func _on_second_fruit_eaten():
+	total_fruit_count -= 1
+	second_fruit_count -= 1
+	print("Uva comida. Quedan %s uvas. Total frutas: %s" % [second_fruit_count, total_fruit_count])
+	
+	# Si se comen todas las frutas, ganamos
+	if total_fruit_count <= 0:
+		_show_victory_screen()
 
 func _show_second_fruits():
-    # comprobar si funciona en la consola
-    print("Mostrando uvas")
-    
-    for fruit in get_tree().get_nodes_in_group("second_fruit"):
-        fruit.show() # Muestra el sprite
-        
-        # Reactiva la habilidad de la fruta de tener colision
-        fruit.monitoring = true
+	print("Mostrando uvas")
+	for uva in get_tree().get_nodes_in_group("second_fruit"):
+		uva.show()
+		uva.monitoring = true
+
+func _show_victory_screen():
+	if $HUD.has_method("stop_all_timers"):
+		$HUD.stop_all_timers()
+
+	var win_screen = victory_screen_scene.instantiate()
+	add_child(win_screen)
+	
+	win_screen.next_level_pressed.connect(_on_go_to_next_level)
+
+func _on_go_to_next_level():
+	if next_level_scene:
+		get_tree().change_scene_to_packed(next_level_scene)
+	else:
+		get_tree().change_scene_to_file("res://Escenas/main_menu.tscn")

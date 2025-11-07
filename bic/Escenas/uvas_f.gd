@@ -1,5 +1,7 @@
 extends Area2D
 
+signal second_fruit_eaten
+
 @export var points: int = 50
 @onready var sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var sprite: Sprite2D = $Sprite2D
@@ -11,6 +13,7 @@ func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		body.add_points(points)
 		_play_sound()
+		second_fruit_eaten.emit()
 		queue_free()
 
 func _play_sound():
