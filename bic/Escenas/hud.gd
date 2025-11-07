@@ -17,10 +17,17 @@ var reloj_start_y: int = 1 # Posición Y del primer frame
 var reloj_frames: Array[Rect2] = []
 var current_reloj_frame: int = 0
 
-func _process(delta):
-	# Comprueba el estado global de Input, es más seguro
-	if Input.is_action_just_pressed("ui_cancel"):
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		
+		# comprobacion
+		if get_tree().paused and (not $PauseMenu.visible):
+			# Pausado por Game Over / Win, no hacer nada
+			return 
+		
 		toggle_pause_menu()
+		
+		get_viewport().set_input_as_handled()
 
 func toggle_pause_menu():
 	var new_pause_state = !get_tree().paused
@@ -51,6 +58,9 @@ func _ready():
 		reloj_frames.append(Rect2(x, reloj_start_y, reloj_frame_width, reloj_frame_height))
 
 func _on_pause_button_pressed():
+	if get_tree().paused and (not $PauseMenu.visible):
+		return
+		
 	toggle_pause_menu()
 
 # Esta función se activa con la señal del botón "Reanudar"

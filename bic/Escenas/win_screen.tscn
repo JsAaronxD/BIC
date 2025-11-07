@@ -70,6 +70,7 @@ flat = true
 
 [node name="win_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_xtfbb")
+volume_db = -8.889
 
 [connection signal="pressed" from="VBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

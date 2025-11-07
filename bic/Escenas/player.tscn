@@ -157,6 +157,7 @@ size = Vector2(31, 31)
 texture_filter = 1
 position = Vector2(505, 274)
 script = ExtResource("1_i8vih")
+block_delay = 0.15
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

@@ -692,10 +692,10 @@ safe_margin = 0.001
 ice_block_scene = ExtResource("4_5k7cu")
 hud = NodePath("../../HUD")
 
-[node name="Enemigo2" parent="base" groups=["enemy"] instance=ExtResource("8_qrnio")]
+[node name="Enemigo2" parent="base" instance=ExtResource("8_qrnio")]
 position = Vector2(815, 97)
 
-[node name="Enemigo3" parent="base" groups=["enemy"] instance=ExtResource("8_qrnio")]
+[node name="Enemigo3" parent="base" instance=ExtResource("8_qrnio")]
 position = Vector2(463, 226)
 
 [node name="GameOverScreen" parent="base" instance=ExtResource("10_qrnio")]

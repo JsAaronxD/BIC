@@ -12,8 +12,11 @@ config_version=5
 
 config/name="BIC"
 run/main_scene="uid://cyuxq6fbo74tj"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="BIC"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://d370dm4ml55x3"
+config/windows_native_icon="res://assets/icono_bic.ico"
 
 [autoload]
 

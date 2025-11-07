@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=4 uid="uid://dqs57hv45ji70"]
+[gd_scene load_steps=23 format=4 uid="uid://dqs57hv45ji70"]
 
 [ext_resource type="Texture2D" uid="uid://c7eimbu4tsj6e" path="res://assets/map/tiles.png" id="1_lmg1i"]
+[ext_resource type="Script" uid="uid://bqf5vo1slrwql" path="res://Escenas/lvl_2.gd" id="1_whu5v"]
 [ext_resource type="Shader" uid="uid://cavslcabm311q" path="res://Escenas/level_1.gdshader" id="2_whu5v"]
 [ext_resource type="Texture2D" uid="uid://burxif6q1c1dc" path="res://assets/snow_background.png" id="3_7kk3g"]
 [ext_resource type="PackedScene" uid="uid://dbyn1njdx811r" path="res://Escenas/banana_f.tscn" id="4_a8tit"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c3c8njjvo0wey" path="res://Escenas/enemigo_1.tscn" id="7_jvn38"]
 [ext_resource type="PackedScene" uid="uid://dfbv0n5fptohv" path="res://Escenas/game_over_screen.tscn" id="8_rjbr6"]
 [ext_resource type="AudioStream" uid="uid://48eonp4f6ycx" path="res://sounds/bic_main_music.mp3" id="10_qr6w4"]
+[ext_resource type="Texture2D" uid="uid://dxnuxyp5f2lvo" path="res://assets/iglu.png" id="10_whu5v"]
 [ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="11_c4iof"]
 [ext_resource type="PackedScene" uid="uid://biscodhyho5cs" path="res://Escenas/hud.tscn" id="12_rbmyi"]
 
@@ -48,6 +50,9 @@ sources/0 = SubResource("TileSetAtlasSource_6phmv")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1j15j"]
 shader = ExtResource("2_whu5v")
 shader_parameter/blur_amount = 0.003
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kk3g"]
+size = Vector2(386.032, 395.438)
 
 [sub_resource type="Animation" id="Animation_hltmg"]
 length = 0.001
@@ -102,6 +107,7 @@ _data = {
 
 [node name="nivel 2" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_whu5v")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
@@ -1054,23 +1060,37 @@ position = Vector2(560, 177)
 safe_margin = 0.001
 ice_block_scene = ExtResource("5_0sh5c")
 hud = NodePath("../../HUD")
+metadata/_edit_lock_ = true
 
-[node name="Enemigo2" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
-position = Vector2(592, 130)
+[node name="Enemigo2" parent="base" instance=ExtResource("7_jvn38")]
+position = Vector2(592, 129)
 
-[node name="Enemigo3" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
+[node name="Enemigo3" parent="base" instance=ExtResource("7_jvn38")]
 position = Vector2(367, 322)
 
-[node name="Enemigo5" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
-position = Vector2(592, 546)
+[node name="Enemigo5" parent="base" instance=ExtResource("7_jvn38")]
+position = Vector2(591, 546)
 
-[node name="Enemigo6" parent="base" groups=["enemy"] instance=ExtResource("7_jvn38")]
+[node name="Enemigo6" parent="base" instance=ExtResource("7_jvn38")]
 position = Vector2(783, 322)
 
 [node name="GameOverScreen" parent="base" instance=ExtResource("8_rjbr6")]
 visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture_filter = 1
+position = Vector2(-96, 338)
+scale = Vector2(0.336842, 0.352617)
+texture = ExtResource("10_whu5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+texture_filter = 1
+position = Vector2(-96, 338)
+scale = Vector2(0.331579, 0.323691)
+shape = SubResource("RectangleShape2D_7kk3g")
+one_way_collision_margin = 0.0
 
 [node name="soundtrack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_qr6w4")
