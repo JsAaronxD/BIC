@@ -15,8 +15,8 @@ func _on_resume_button_pressed():
 	resume_pressed.emit() # Avisa al HUD que reanude
 
 func _on_options_button_pressed():
-	print("Menu de opciones presionado (TODO)")
-	# Aquí podrías mostrar/ocultar otro panel de opciones
+	get_tree().paused = false
+	get_tree().reload_current_scene()
 
 func _on_quit_button_pressed():
 	quit_pressed.emit() # Avisa al HUD que salga al menú
