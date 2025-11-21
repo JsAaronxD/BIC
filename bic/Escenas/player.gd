@@ -29,12 +29,9 @@ func _physics_process(delta):
 		velocity = direction * move_speed
 		var collision = move_and_collide(velocity * delta)
 		if collision:
-			# --- INICIO DEL NUEVO CÓDIGO ---
-			# Comprueba si el objeto con el que chocamos es un enemigo
 			var collider = collision.get_collider()
 			if collider and collider.is_in_group("enemy"):
-				game_over() # Si es un enemigo, morimos
-			# --- FIN DEL NUEVO CÓDIGO ---
+				game_over()
 
 			is_moving = false
 			velocity = Vector2.ZERO
@@ -100,7 +97,7 @@ func game_over() -> void:
 	if hud and hud.has_method("stop_all_timers"):
 		hud.stop_all_timers()
 
-	# Corrutina asíncrona: genera los bloques uno por uno
+	# genera los bloques uno por uno
 func place_or_break_blocks() -> void:
 	if not ice_block_scene or placing_blocks:
 		return
@@ -124,10 +121,10 @@ func place_or_break_blocks() -> void:
 	var initial_hits := space_state.intersect_point(params)
 
 	if initial_hits.size() > 0:
-		# Hay bloque frente al jugador → ROMPER FILA
+		# si hay bloque, romper la fila
 		break_ice_line(dir)
 	else:
-		# No hay bloque → COLOCAR FILA
+		# si no hay bloque, coloca la fila
 		await build_ice_line(dir)
 
 	placing_blocks = false
@@ -158,13 +155,12 @@ func build_ice_line(dir: Vector2) -> void:
 
 		if hit_existing_block:
 			break
-
-		# ---- CÓDIGO DE CAMBIO DE COLOR (ANTES de crear el bloque) ----
+		
+		# colocar la fruta cuando esta debajo de un bloque de hielo
 		var fruit = _get_fruit_at(pos + Vector2(0, -16))
 		if fruit and fruit.has_method("set_on_ice"):
 			fruit.set_on_ice(true)
-		# -----------------------------------------------------------
-
+			
 		var block = ice_block_scene.instantiate()
 		block.global_position = pos
 		get_parent().add_child(block)
@@ -174,7 +170,6 @@ func build_ice_line(dir: Vector2) -> void:
 		pos += dir * tile_size
 
 func break_ice_line(dir: Vector2) -> void:
-	# Arreglo para los espacios: Redondea la posición de inicio
 	var snapped_pos = global_position.round()
 	var pos = snapped_pos + dir * tile_size
 	
@@ -196,11 +191,9 @@ func break_ice_line(dir: Vector2) -> void:
 			var collider = hit.get("collider")
 			if collider and collider.has_method("break_block"):
 				
-				# --- CÓDIGO DE CAMBIO DE COLOR (ANTES de romper el bloque) ---
 				var fruit = _get_fruit_at(pos + Vector2(0, -16))
 				if fruit and fruit.has_method("set_on_ice"):
 					fruit.set_on_ice(false)
-				# ----------------------------------------------------------
 				
 				collider.break_block()
 				hit_block = true

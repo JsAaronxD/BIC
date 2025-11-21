@@ -11,7 +11,7 @@ func _ready():
 	add_to_group("ice_block")
 	update_visibility()
 
-# Public: rompe el bloque (llamado por el jugador)
+# funcion para romper el blque
 func break_block():
 	if is_breaking:
 		return
@@ -22,9 +22,9 @@ func break_block():
 	_notify_block_below_of_change()
 	queue_free()
 
-# Actualiza visibilidad de las partes segun bloques vecinos
+# actualiza como se vera el bloque
 func update_visibility():
-	# si faltan sprites, evitamos errores
+	# si faltan sprites se intenta evitar errores
 	if body_sprite:
 		return
 
@@ -42,14 +42,14 @@ func _notify_block_below_of_change():
 	if below:
 		below.update_visibility()
 
-# Helper: devuelve el nodo bloque en una posición de grid (o null)
+
 func _get_block_at(world_pos: Vector2) -> StaticBody2D:
 	var space_state := get_world_2d().direct_space_state
 	var params := PhysicsPointQueryParameters2D.new()
 	params.position = world_pos
 	params.collide_with_bodies = true
 	params.collide_with_areas = false
-	# realiza la query
+
 	var hits := space_state.intersect_point(params)
 	for hit in hits:
 		var collider = hit.get("collider")

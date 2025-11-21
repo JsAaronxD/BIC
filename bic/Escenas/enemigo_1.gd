@@ -3,12 +3,14 @@ extends CharacterBody2D
 @export var tile_size: int = 32
 @export var move_speed: float = 25.0
 @export var initial_direction: Vector2 = Vector2.RIGHT
-var is_trapped: bool = false
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
+var is_trapped: bool = false
+var is_moving: bool = false
 
 var direction: Vector2
 var target_position: Vector2
-var is_moving: bool = false
+var body: Node
 
 func _ready() -> void:
 	direction = initial_direction.normalized()
@@ -16,7 +18,7 @@ func _ready() -> void:
 	$Hitbox.body_entered.connect(_on_body_entered)
 
 func _physics_process(delta: float) -> void:
-	# Si está atrapado, no hace nada.
+	# si está atrapado no hace nada
 	if is_trapped:
 		_set_next_target()
 		return
@@ -44,27 +46,22 @@ func _physics_process(delta: float) -> void:
 
 
 func _set_next_target() -> void:
-	# Redondea la posición actual a la cuadrícula más cercana
+	# redondea la posición actual
 	var snapped_pos = position.round()
 
-	# Calcula la siguiente posición desde la posición "limpia", no la decimal
 	var try_pos = snapped_pos + direction * tile_size
 
-	# La "mirada" también debe usar la posición limpia
 	var collision = move_and_collide((try_pos - snapped_pos).normalized() * 2) 
-
-	# (El resto de la función sigue igual)
+	
 	if collision:
 		# Si no puede avanzar, gira
 		var tries := 0
 		while tries < 4 and collision:
 			_rotate_direction()
-			try_pos = snapped_pos + direction * tile_size # <--- CAMBIA ESTO (usa snapped_pos)
-			collision = move_and_collide((try_pos - snapped_pos).normalized() * 2) # <--- CAMBIA ESTO (usa snapped_pos)
+			try_pos = snapped_pos + direction * tile_size
+			collision = move_and_collide((try_pos - snapped_pos).normalized() * 2)
 			tries += 1
 		if tries >= 4:
-			if not is_trapped: # Para que solo lo imprima una vez
-				print("¡Enemigo atascado!")
 			is_trapped = true
 			is_moving = false
 			
@@ -74,7 +71,7 @@ func _set_next_target() -> void:
 			
 			return
 			
-	# Si llegamos aquí, es porque hay un camino libre
+	# tiene un camino libre
 	
 	if is_trapped:
 		print("¡Enemigo libre!")
@@ -90,24 +87,22 @@ func _rotate_direction() -> void:
 
 
 func _update_animation() -> void:
-	# Estos números (-4, 4, 0) son ejemplos.
-	# ¡Tendrás que ajustarlos hasta que el sprite se vea centrado!
 	
 	if direction.dot(Vector2.RIGHT) > 0.9:
 		anim.play("walk_right")
-		anim.position.x = 4  # Mueve el sprite 4 píxeles a la DERECHA
+		anim.position.x = -4
 		
 	elif direction.dot(Vector2.LEFT) > 0.9:
 		anim.play("walk_left")
-		anim.position.x = -4 # Mueve el sprite 4 píxeles a la IZQUIERDA
+		anim.position.x = 4
 		
 	elif direction.dot(Vector2.DOWN) > 0.9:
 		anim.play("walk_down")
-		anim.position.x = 0  # Centra el sprite
+		anim.position.x = 0
 		
 	elif direction.dot(Vector2.UP) > 0.9:
 		anim.play("walk_up")
-		anim.position.x = 0  # Centra el sprite
+		anim.position.x = 0
 
 
 func _on_body_entered(body: Node) -> void:
