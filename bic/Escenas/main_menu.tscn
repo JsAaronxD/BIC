@@ -82,11 +82,11 @@ theme_override_fonts/font = ExtResource("3_qn7j5")
 text = "Jugar"
 flat = true
 
-[node name="options" type="Button" parent="VBoxContainer"]
+[node name="niveles" type="Button" parent="VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_qn7j5")
-text = "Opciones"
+text = "Niveles"
 flat = true
 
 [node name="exit" type="Button" parent="VBoxContainer"]
@@ -102,5 +102,5 @@ volume_db = -15.111
 autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/niveles" to="." method="_on_niveles_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
