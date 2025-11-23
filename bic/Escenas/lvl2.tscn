@@ -1050,6 +1050,7 @@ visible = false
 stream = ExtResource("10_qr6w4")
 volume_db = -11.118
 autoplay = true
+bus = &"Music"
 
 [node name="nivel2" type="CanvasLayer" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyuxq6fbo74tj"]
+[gd_scene load_steps=12 format=3 uid="uid://cyuxq6fbo74tj"]
 
 [ext_resource type="Script" uid="uid://b2n7af0mqcr5t" path="res://Escenas/main_menu.gd" id="1_a3sw6"]
 [ext_resource type="Theme" uid="uid://chvhkfck1givs" path="res://ui/menu_theme.tres" id="1_a082v"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d1mjpf7wxpm2d" path="res://assets/ice_cream_background.png" id="4_xgkoo"]
 [ext_resource type="Shader" uid="uid://cnaql23erjyjd" path="res://Escenas/menu.gdshader" id="5_7rocb"]
 [ext_resource type="Texture2D" uid="uid://bjfsvh1dxq26j" path="res://assets/icono_menupng.png" id="5_s5s4m"]
+[ext_resource type="PackedScene" uid="uid://buk5vwllblha5" path="res://Escenas/options_menu.tscn" id="10_0bd8u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0bd8u"]
 shader = ExtResource("5_7rocb")
@@ -82,11 +83,11 @@ theme_override_fonts/font = ExtResource("3_qn7j5")
 text = "Jugar"
 flat = true
 
-[node name="niveles" type="Button" parent="VBoxContainer"]
+[node name="opciones" type="Button" parent="VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_qn7j5")
-text = "Niveles"
+text = "Opciones"
 flat = true
 
 [node name="exit" type="Button" parent="VBoxContainer"]
@@ -100,7 +101,11 @@ flat = true
 stream = ExtResource("3_hjcy7")
 volume_db = -15.111
 autoplay = true
+bus = &"Music"
+
+[node name="OptionsMenu" parent="." instance=ExtResource("10_0bd8u")]
+visible = false
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/niveles" to="." method="_on_niveles_pressed"]
+[connection signal="pressed" from="VBoxContainer/opciones" to="." method="_on_opciones_pressed"]
 [connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]

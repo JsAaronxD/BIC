@@ -1,6 +1,7 @@
 extends Control
 
 @export var game_scene: PackedScene
+@onready var options_menu = $OptionsMenu
 
 func _on_play_pressed():
 	if game_scene:
@@ -9,6 +10,5 @@ func _on_play_pressed():
 func _on_exit_pressed():
 	get_tree().quit()
 
-
-func _on_niveles_pressed() -> void:
-	pass # Replace with function body.
+func _on_opciones_pressed() -> void:
+	options_menu.show()

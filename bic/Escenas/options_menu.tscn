@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://buk5vwllblha5"]
+
+[ext_resource type="Script" uid="uid://wamwgx2owx8c" path="res://Escenas/options_menu.gd" id="1_ucoq3"]
+[ext_resource type="Theme" uid="uid://chvhkfck1givs" path="res://ui/menu_theme.tres" id="1_yenn3"]
+[ext_resource type="Shader" uid="uid://cnaql23erjyjd" path="res://Escenas/menu.gdshader" id="3_d3gph"]
+[ext_resource type="Texture2D" uid="uid://d1mjpf7wxpm2d" path="res://assets/ice_cream_background.png" id="4_7ltkp"]
+[ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="5_a6r6p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hhl6x"]
+shader = ExtResource("3_d3gph")
+shader_parameter/border_color = Color(0.682353, 0.572549, 0, 1)
+shader_parameter/corner_radius = 0.04
+shader_parameter/border_thickness = 0.02
+
+[sub_resource type="LabelSettings" id="LabelSettings_usexx"]
+font_size = 42
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[node name="OptionsMenu" type="CanvasLayer"]
+script = ExtResource("1_ucoq3")
+
+[node name="IceCreamBackground" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_hhl6x")
+position = Vector2(578, 322.5)
+scale = Vector2(0.415625, 0.772581)
+texture = ExtResource("4_7ltkp")
+region_rect = Rect2(1.81531, 0.251709, 1918.18, 619.748)
+
+[node name="opciones" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -161.5
+offset_top = 127.0
+offset_right = 161.5
+offset_bottom = 224.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_a6r6p")
+theme_override_font_sizes/font_size = 58
+text = "Opciones"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = 128.0
+offset_right = 94.5
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_yenn3")
+theme_override_font_sizes/font_size = 39
+text = "Regresar"
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = -83.0
+offset_right = 80.5
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="musica" type="Label" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_a6r6p")
+text = "musica"
+label_settings = SubResource("LabelSettings_usexx")
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="musica2" type="Label" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_a6r6p")
+text = "Efectos"
+label_settings = SubResource("LabelSettings_usexx")
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0

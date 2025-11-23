@@ -69,5 +69,6 @@ flat = true
 [node name="win_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_dn5vy")
 volume_db = -8.889
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

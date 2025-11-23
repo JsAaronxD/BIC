@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6qbodl77642h"]
+[gd_scene load_steps=9 format=3 uid="uid://c6qbodl77642h"]
 
 [ext_resource type="Theme" uid="uid://chvhkfck1givs" path="res://ui/menu_theme.tres" id="1_8i4rq"]
 [ext_resource type="Script" uid="uid://jg0gkes7a0go" path="res://Escenas/pause_menu.gd" id="2_hvfi7"]
 [ext_resource type="Texture2D" uid="uid://d1mjpf7wxpm2d" path="res://assets/ice_cream_background.png" id="2_inj7e"]
 [ext_resource type="Shader" uid="uid://cnaql23erjyjd" path="res://Escenas/menu.gdshader" id="3_usexx"]
 [ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="4_hvfi7"]
+[ext_resource type="PackedScene" uid="uid://buk5vwllblha5" path="res://Escenas/options_menu.tscn" id="6_hhl6x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hhl6x"]
 shader = ExtResource("3_usexx")
@@ -30,8 +31,8 @@ script = ExtResource("2_hvfi7")
 [node name="IceCreamBackground" type="Sprite2D" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_hhl6x")
-position = Vector2(576, 316)
-scale = Vector2(0.234375, 0.309677)
+position = Vector2(576.615, 327.5)
+scale = Vector2(0.257813, 0.346774)
 texture = ExtResource("2_inj7e")
 region_rect = Rect2(1.81531, 0.251709, 1918.18, 619.748)
 
@@ -62,12 +63,23 @@ layout_mode = 2
 text = "Reanudar"
 flat = true
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="RetryButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Reiniciar"
+flat = true
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Opciones"
 flat = true
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Salir"
 flat = true
+
+[node name="OptionsMenu" parent="." instance=ExtResource("6_hhl6x")]
+layer = 2
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

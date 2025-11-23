@@ -720,6 +720,7 @@ one_way_collision_margin = 0.0
 stream = ExtResource("8_5k7cu")
 volume_db = -11.118
 autoplay = true
+bus = &"Music"
 
 [node name="nivel1" type="CanvasLayer" parent="."]
 

@@ -21,11 +21,11 @@ func _play_sound():
 	var sfx = AudioStreamPlayer2D.new()
 	sfx.stream = sound.stream
 	sfx.position = global_position
+	sfx.bus = "SFX"
 	get_parent().add_child(sfx)
 	sfx.play()
 	sfx.finished.connect(sfx.queue_free)
-
-# --- AÑADE ESTA NUEVA FUNCIÓN ---
+	
 # Esta función controlará el color.
 func set_on_ice(is_on_ice: bool):
 	if is_on_ice:

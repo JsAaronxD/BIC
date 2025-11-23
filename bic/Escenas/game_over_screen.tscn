@@ -104,9 +104,11 @@ flat = true
 
 [node name="death_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_lljsr")
+bus = &"SFX"
 
 [node name="lose_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_0r3j2")
+bus = &"Music"
 
 [connection signal="pressed" from="Panel/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]
