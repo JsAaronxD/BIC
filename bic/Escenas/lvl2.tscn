@@ -108,6 +108,7 @@ _data = {
 }
 
 [node name="nivel 2" type="Node2D"]
+y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_whu5v")
 victory_screen_scene = ExtResource("2_7kk3g")
