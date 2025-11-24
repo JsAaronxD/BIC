@@ -33,5 +33,5 @@ func set_on_ice(is_on_ice: bool):
 		# Color azul oscuro
 		sprite.modulate = Color(0.2, 0.3, 0.8)
 	else:
-		# Color normal (blanco)
+		# Color normal
 		sprite.modulate = Color(1.0, 1.0, 1.0)

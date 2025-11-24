@@ -22,7 +22,6 @@ func _input(event):
 		
 		# comprobacion
 		if get_tree().paused and (not $PauseMenu.visible):
-			# Pausado por Game Over / Win, no hacer nada
 			return 
 		
 		toggle_pause_menu()
@@ -95,7 +94,6 @@ func update_timer_display():
 	var seconds = int(time_remaining) % 60
 	
 	# Formatea el texto como "02:00"
-	# (%02d significa "número entero con 2 dígitos, añade un 0 a la izquierda si falta")
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 	
 func _on_level_timer_timeout():
