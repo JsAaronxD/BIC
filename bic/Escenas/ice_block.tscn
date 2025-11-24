@@ -1,11 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://tm24hkxv56h1"]
+[gd_scene load_steps=12 format=3 uid="uid://tm24hkxv56h1"]
 
 [ext_resource type="Script" uid="uid://cbq01fpe876ou" path="res://Escenas/ice_block.gd" id="1_1d06i"]
 [ext_resource type="Texture2D" uid="uid://bbgi20yn083t4" path="res://assets/Ice_Block 2.png" id="2_pi1jo"]
 [ext_resource type="Texture2D" uid="uid://dfi5h5tq5vq3u" path="res://assets/Ice_Block 1.png" id="3_kx1fk"]
+[ext_resource type="Texture2D" uid="uid://d35kbuy3whcjv" path="res://assets/breaking_ice.png" id="4_kx1fk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1d06i"]
 size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_376gb"]
+atlas = ExtResource("4_kx1fk")
+region = Rect2(0, 0, 59, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3v32"]
+atlas = ExtResource("4_kx1fk")
+region = Rect2(59, 0, 59, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6vix"]
+atlas = ExtResource("4_kx1fk")
+region = Rect2(118, 0, 59, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgtki"]
+atlas = ExtResource("4_kx1fk")
+region = Rect2(177, 0, 59, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw5ld"]
+atlas = ExtResource("4_kx1fk")
+region = Rect2(236, 0, 59, 61)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1yn07"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_376gb")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_b3v32")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_c6vix")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_bgtki")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_xw5ld")
+}],
+"loop": false,
+"name": &"break",
+"speed": 10.0
+}]
 
 [node name="ice_block" type="StaticBody2D" groups=["ice_block"]]
 position = Vector2(0, -15)
@@ -24,3 +68,9 @@ texture = ExtResource("3_kx1fk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_1d06i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.625, -10.375)
+scale = Vector2(0.758475, 0.733607)
+sprite_frames = SubResource("SpriteFrames_1yn07")
+animation = &"break"

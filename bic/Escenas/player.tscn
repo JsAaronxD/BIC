@@ -157,7 +157,7 @@ size = Vector2(31, 31)
 texture_filter = 1
 position = Vector2(505, 274)
 script = ExtResource("1_i8vih")
-block_delay = 0.15
+block_delay = 0.065
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -168,3 +168,9 @@ animation = &"walk_down"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_i8vih")
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFX_Player2" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

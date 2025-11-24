@@ -39,7 +39,6 @@ func _ready():
 func _on_normal_fruit_eaten():
 	total_fruit_count -= 1
 	normal_fruit_count -= 1
-	print("Banana comida. Quedan %s bananas. Total frutas: %s" % [normal_fruit_count, total_fruit_count])
 
 	# Comprobamos si las frutas NORMALES se acabaron
 	if normal_fruit_count <= 0:
@@ -53,7 +52,6 @@ func _on_normal_fruit_eaten():
 func _on_second_fruit_eaten():
 	total_fruit_count -= 1
 	second_fruit_count -= 1
-	print("Uva comida. Quedan %s uvas. Total frutas: %s" % [second_fruit_count, total_fruit_count])
 	
 	# Si se comen todas las frutas, ganamos
 	if total_fruit_count <= 0:

@@ -4,8 +4,15 @@ signal score_updated(new_score)
 @export var tile_size := 32
 @export var ice_block_scene: PackedScene
 @export var block_delay := 0.1
-@onready var animated_sprite = $AnimatedSprite2D
 @export var hud: CanvasLayer
+
+@onready var animated_sprite = $AnimatedSprite2D
+@onready var sfx_player: AudioStreamPlayer = $SFX_Player
+@onready var sfx_player2: AudioStreamPlayer = $SFX_Player2
+
+var sound_break = preload("res://sounds/sfx_breakIce.wav")
+var sound_break2 = preload("res://sounds/sfx_breakIce2.wav")
+var sound_place = preload("res://sounds/sfx_placeIce.wav")
 
 var last_animation : String = "walk_down"
 var score: int = 0
@@ -136,6 +143,9 @@ func build_ice_line(dir: Vector2) -> void:
 	var space_state := get_world_2d().direct_space_state
 	var created_blocks: Array = []
 
+	sfx_player.stream = sound_place
+	sfx_player.play()
+
 	await get_tree().process_frame
 
 	while true:
@@ -165,7 +175,7 @@ func build_ice_line(dir: Vector2) -> void:
 		block.global_position = pos
 		get_parent().add_child(block)
 		created_blocks.append(block)
-
+		
 		await get_tree().create_timer(block_delay).timeout
 		pos += dir * tile_size
 
@@ -174,6 +184,12 @@ func break_ice_line(dir: Vector2) -> void:
 	var pos = snapped_pos + dir * tile_size
 	
 	var space_state := get_world_2d().direct_space_state
+
+	sfx_player.stream = sound_break
+	sfx_player.play()
+	
+	sfx_player2.stream = sound_break2
+	sfx_player2.play()
 
 	while true:
 		var params := PhysicsPointQueryParameters2D.new()
@@ -197,6 +213,7 @@ func break_ice_line(dir: Vector2) -> void:
 				
 				collider.break_block()
 				hit_block = true
+				
 				break
 
 		if not hit_block:

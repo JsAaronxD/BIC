@@ -2,23 +2,40 @@ extends StaticBody2D
 
 @onready var body_sprite: Sprite2D = $Sprite2D
 @onready var top_sprite: Sprite2D = $TopSprite
+# Referencia al nuevo nodo de animación
+@onready var anim_player: AnimatedSprite2D = $AnimatedSprite2D 
 
 @export var tile_size: int = 32
 var is_breaking: bool = false
 
 func _ready():
-	# asegura pertenecer al grupo para detectarlo desde queries
 	add_to_group("ice_block")
+	# Asegurarse que la animación esté oculta al inicio por si acaso
+	if anim_player:
+		anim_player.visible = false
 	update_visibility()
 
-# funcion para romper el blque
 func break_block():
 	if is_breaking:
 		return
 	is_breaking = true
-	# opcional: efecto visual/sonido antes de destruir
-	await get_tree().create_timer(0.08).timeout
-	# antes de borrarlo, notifica al bloque que esté debajo para que actualice
+	
+	# 1. Desactivar colisión INMEDIATAMENTE para que el jugador no choque con "aire"
+	$CollisionShape2D.set_deferred("disabled", true)
+	
+	# 2. Ocultar los sprites estáticos
+	if body_sprite: body_sprite.visible = false
+	if top_sprite: top_sprite.visible = false
+	
+	# 3. Mostrar y reproducir la animación de ruptura
+	if anim_player:
+		anim_player.visible = true
+		anim_player.play("break")
+		
+		# 4. Esperar exactamente a que termine la animación
+		await anim_player.animation_finished
+	
+	# 5. Notificar y borrar
 	_notify_block_below_of_change()
 	queue_free()
 

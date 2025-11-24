@@ -73,6 +73,9 @@ func _set_next_target() -> void:
 			
 	# tiene un camino libre
 	
+	if is_trapped:
+		print("¡Enemigo libre!")
+	
 	is_trapped = false # Ya no esta encerrado
 	target_position = try_pos
 	is_moving = true
