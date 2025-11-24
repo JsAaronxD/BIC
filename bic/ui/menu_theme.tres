@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://chvhkfck1givs"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://chvhkfck1givs"]
 
 [ext_resource type="FontFile" uid="uid://bkecrwanthtwl" path="res://fonts/BadIceCreamFont.otf" id="1_3ymh7"]
+[ext_resource type="Texture2D" uid="uid://432kxxivl7pb" path="res://assets/ice_block_unselected.png" id="2_sojpq"]
+[ext_resource type="Texture2D" uid="uid://k18urih3pqam" path="res://assets/ice_block_slider.png" id="3_sojpq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ena0y"]
 content_margin_left = 4.0
@@ -96,3 +98,6 @@ Button/styles/focus = SubResource("StyleBoxFlat_sojpq")
 Button/styles/hover = SubResource("StyleBoxFlat_w5svx")
 Button/styles/normal = SubResource("StyleBoxFlat_fvhrp")
 Button/styles/pressed = SubResource("StyleBoxFlat_il8ly")
+HSlider/icons/grabber = ExtResource("2_sojpq")
+HSlider/icons/grabber_disabled = ExtResource("2_sojpq")
+HSlider/icons/grabber_highlight = ExtResource("3_sojpq")

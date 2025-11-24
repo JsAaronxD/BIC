@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://buk5vwllblha5"]
+[gd_scene load_steps=10 format=3 uid="uid://buk5vwllblha5"]
 
 [ext_resource type="Script" uid="uid://wamwgx2owx8c" path="res://Escenas/options_menu.gd" id="1_ucoq3"]
 [ext_resource type="Theme" uid="uid://chvhkfck1givs" path="res://ui/menu_theme.tres" id="1_yenn3"]
@@ -16,6 +16,35 @@ shader_parameter/border_thickness = 0.02
 font_size = 42
 outline_size = 7
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yenn3"]
+content_margin_left = 278.0
+bg_color = Color(0.941416, 0.89538, 0.853051, 1)
+border_width_left = 5
+border_width_top = 10
+border_width_right = 5
+border_width_bottom = 10
+border_color = Color(0.743001, 0.556588, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucoq3"]
+bg_color = Color(0.941416, 0.89538, 0.853051, 1)
+border_width_left = 5
+border_width_top = 10
+border_width_right = 5
+border_width_bottom = 10
+border_color = Color(0.743001, 0.556588, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 14
 
 [node name="OptionsMenu" type="CanvasLayer"]
 script = ExtResource("1_ucoq3")
@@ -89,6 +118,8 @@ horizontal_alignment = 1
 [node name="MusicSlider" type="HSlider" parent="VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
+theme = ExtResource("1_yenn3")
+theme_override_styles/slider = SubResource("StyleBoxFlat_yenn3")
 max_value = 1.0
 step = 0.05
 value = 1.0
@@ -104,6 +135,8 @@ horizontal_alignment = 1
 [node name="SFXSlider" type="HSlider" parent="VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
+theme = ExtResource("1_yenn3")
+theme_override_styles/slider = SubResource("StyleBoxFlat_ucoq3")
 max_value = 1.0
 step = 0.05
 value = 1.0
