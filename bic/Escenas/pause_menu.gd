@@ -20,6 +20,7 @@ func _on_retry_button_pressed():
 	get_tree().reload_current_scene()
 
 func _on_quit_button_pressed():
+	GameManager.reset_total_score()
 	quit_pressed.emit() # Avisa al HUD que salga al menú
 	
 func _on_options_button_pressed():

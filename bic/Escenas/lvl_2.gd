@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var victory_screen_scene: PackedScene
-@export var next_level_scene: PackedScene
 
 @onready var hud = $HUD
 
@@ -11,6 +10,8 @@ var second_fruit_count: int = 0
 var total_fruit_count: int = 0
 
 func _ready():
+	GameManager.save_score_checkpoint()
+	
 	await get_tree().process_frame
 	
 	var fruits = get_tree().get_nodes_in_group("fruit")
@@ -37,7 +38,7 @@ func _ready():
 func _on_normal_fruit_eaten():
 	total_fruit_count -= 1
 	normal_fruit_count -= 1
-	print("Banana comida. Quedan %s bananas. Total frutas: %s" % [normal_fruit_count, total_fruit_count])
+	
 
 	# Comprobamos si las frutas NORMALES se acabaron
 	if normal_fruit_count <= 0:
@@ -51,7 +52,7 @@ func _on_normal_fruit_eaten():
 func _on_second_fruit_eaten():
 	total_fruit_count -= 1
 	second_fruit_count -= 1
-	print("Uva comida. Quedan %s uvas. Total frutas: %s" % [second_fruit_count, total_fruit_count])
+
 	
 	# Si se comen todas las frutas, ganamos
 	if total_fruit_count <= 0:
@@ -69,11 +70,3 @@ func _show_victory_screen():
 
 	var win_screen = victory_screen_scene.instantiate()
 	add_child(win_screen)
-	
-	win_screen.next_level_pressed.connect(_on_go_to_next_level)
-
-func _on_go_to_next_level():
-	if next_level_scene:
-		get_tree().change_scene_to_packed(next_level_scene)
-	else:
-		get_tree().change_scene_to_file("res://Escenas/main_menu.tscn")

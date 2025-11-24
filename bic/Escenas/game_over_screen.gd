@@ -15,9 +15,11 @@ func show_game_over() -> void:
 	lose_music.play()
 
 func _on_retry_button_pressed() -> void:
+	GameManager.reset_score_to_checkpoint()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 func _on_quit_button_pressed() -> void:
+	GameManager.reset_total_score()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Escenas/main_menu.tscn")

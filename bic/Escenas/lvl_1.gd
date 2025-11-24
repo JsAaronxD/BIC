@@ -11,6 +11,8 @@ var second_fruit_count: int = 0
 var total_fruit_count: int = 0
 
 func _ready():
+	GameManager.save_score_checkpoint()
+	
 	await get_tree().process_frame
 	
 	var fruits = get_tree().get_nodes_in_group("fruit")

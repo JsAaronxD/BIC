@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
+		GameManager.add_to_total_score(points)
 		body.add_points(points)
 		_play_sound()
 		second_fruit_eaten.emit()

@@ -52,7 +52,7 @@ text = "Ganaste!!"
 label_settings = SubResource("LabelSettings_wcmeq")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var win_music: AudioStreamPlayer = $win_music
-
+@onready var score_label = $VBoxContainer/ScoreLabel
 # Esta señal le avisará al nivel que debe cambiar de escena
 signal next_level_pressed
 
@@ -12,17 +12,10 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	win_music.play()
 	
+	if score_label:
+		score_label.text = "PUNTAJE FINAL: " + str(GameManager.total_score)
+	
 func _on_quit_button_pressed() -> void:
 	get_tree().paused = false
+	GameManager.reset_total_score()
 	get_tree().change_scene_to_file("res://Escenas/main_menu.tscn")
-
-
-func _on_next_level_button_pressed() -> void:
-	# Quitamos la pausa antes de cambiar de escena
-	get_tree().paused = false
-	
-	# Emitimos la señal para que el script del nivel nos escuche
-	next_level_pressed.emit()
-	
-	# Nos destruimos
-	queue_free()
