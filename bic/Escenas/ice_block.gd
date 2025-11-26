@@ -20,22 +20,22 @@ func break_block():
 		return
 	is_breaking = true
 	
-	# 1. Desactivar colisión INMEDIATAMENTE para que el jugador no choque con "aire"
+	# Desactivar colision
 	$CollisionShape2D.set_deferred("disabled", true)
 	
-	# 2. Ocultar los sprites estáticos
+	# Ocultar sprites estaticos
 	if body_sprite: body_sprite.visible = false
 	if top_sprite: top_sprite.visible = false
 	
-	# 3. Mostrar y reproducir la animación de ruptura
+	# mostrar animacion de ruptura
 	if anim_player:
 		anim_player.visible = true
 		anim_player.play("break")
 		
-		# 4. Esperar exactamente a que termine la animación
+		# esperar que termine la animacion
 		await anim_player.animation_finished
 	
-	# 5. Notificar y borrar
+	# notificar y borrar el bloque
 	_notify_block_below_of_change()
 	queue_free()
 
